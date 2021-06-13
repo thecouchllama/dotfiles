@@ -20,9 +20,9 @@ source ~/.zinit/bin/zinit.zsh
 # zsh plugins
 zinit lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
-      zdharma/fast-syntax-highlighting \
+  zdharma/fast-syntax-highlighting \
   blockf atpull'zinit creinstall -q "$PWD"' \
-      zsh-users/zsh-completions \
+  zsh-users/zsh-completions \
   zsh-users/zsh-history-substring-search \
   pick"z.sh" rupa/z \
   changyuheng/fz \
@@ -37,3 +37,7 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ "$BLINKSH" ]]; then
+  ZLE_RPROMPT_INDENT=0
+fi
