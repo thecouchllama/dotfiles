@@ -37,7 +37,3 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [[ "$BLINKSH" ]]; then
-  ZLE_RPROMPT_INDENT=0
-fi
