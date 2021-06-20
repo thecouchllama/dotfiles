@@ -8,8 +8,9 @@ alias ping='prettyping --nolegend'
 alias vi=nvim
 
 # Ripgrep Aliases
-alias rg="rg -S"
-alias rgi="rg -i"
+alias rg="batgrep --pager='less -RF' -S"
+alias rgi="batgrep  --pager='less -RF' -i"
+alias rgs="batgrep  --pager='less -RF' -s"
 
 # Other Aliases
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
@@ -17,15 +18,9 @@ alias svi="sudo -e"
 alias sz="source ~/.zshrc"
 
 # bat aliases
-if which batcat 2>&1 >/dev/null; then
-  alias cat='batcat -p --pager=never --theme=cobalt2'
-  alias catl='batcat --pager=never --theme=cobalt2'
-  alias catp='batcat --theme=cobalt2'
-else
-  alias cat='bat -p --pager=never --theme=cobalt2'
-  alias catl='bat --pager=never --theme=cobalt2'
-  alias catp='bat --theme=cobalt2'
-fi
+alias cat='bat -p --pager=never'
+alias catl='bat --pager=never'
+alias catp='bat'
 
 # ssh/scp aliases
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'

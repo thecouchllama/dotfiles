@@ -10,6 +10,12 @@ function catnc() {
     egrep -v '(^#|^/)' "$1" | sed '/^$/d'
 }
 
+# uses batcat for diff. This is done in a function since columns isn't working
+# properly in blink shell
+function diff() {
+  batdiff --delta --terminal-width=$(($COLUMNS-1))
+}
+
 # Renames tmux window to server ssh is being used to connect to
 function ssh() {
   if [ -n "$TMUX" ] # set only if within running tmux
