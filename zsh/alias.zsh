@@ -7,9 +7,9 @@ alias ping='prettyping --nolegend'
 alias vi=nvim
 
 # Ripgrep Aliases
-alias rg="batgrep --pager='less -R' -S"
-alias rgi="batgrep  --pager='less -R' -i"
-alias rgs="batgrep  --pager='less -R' -s"
+alias rg="batgrep -S"
+alias rgi="batgrep -i"
+alias rgs="batgrep -s"
 
 # Other Aliases
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
