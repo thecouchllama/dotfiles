@@ -54,8 +54,6 @@ export BAT_THEME="cobalt2"
 
 # pager settings
 export PAGER="less -R"
-export BAT_PAGER="less -R"
-export DELTA_PAGER="less -R"
 
 # Disable homebrew git token request
 export HOMEBREW_NO_GITHUB_API=TRUE
