@@ -33,9 +33,11 @@
   diffFilter = delta --color-only --theme="cobalt2"
 [merge]
   conflictstyle = diff3
-  tool = nvim
+  tool = meld
 [mergetool]
   prompt = false
+[mergetool "meld"]
+  path = /Applications/Meld.app/Contents/MacOS/Meld
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [pager]
