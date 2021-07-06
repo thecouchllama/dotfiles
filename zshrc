@@ -37,3 +37,5 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.zshrc_local

@@ -53,9 +53,9 @@ preexec () {print -Pn "\e]0;%n@%m: $1 (%~)\a"}
 export BAT_THEME="cobalt2"
 
 # pager settings
-export PAGER="less -RF"
-export BAT_PAGER="less -RF"
-export DELTA_PAGER="less -RF"
+export PAGER="less -R"
+export BAT_PAGER="less -R"
+export DELTA_PAGER="less -R"
 
 # Disable homebrew git token request
 export HOMEBREW_NO_GITHUB_API=TRUE
