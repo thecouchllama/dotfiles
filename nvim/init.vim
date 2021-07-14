@@ -107,6 +107,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ojroques/vim-oscyank'
+Plug 'sunaku/vim-dasht'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -416,7 +417,9 @@ nnoremap <silent> <leader>gl :Glog<cr>
 nnoremap <silent> <leader>gp :Gpush origin HEAD<cr>
 nnoremap <silent> <leader>gr :Gread<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr><c-w>
-nmap <silent> <leader>h <Plug>DashSearch
+nnoremap <silent> <Leader>h :call Dasht(dasht#cursor_search_terms())<Return>
+vnoremap <silent> <Leader>h y:<C-U>call Dasht(getreg(0))<Return>
+nnoremap <Leader>k :Dasht<Space>
 nnoremap <leader>nf :Neoformat<cr>
 nnoremap <leader>p "+p
 nmap <leader>qf  <Plug>(coc-fix-current)
