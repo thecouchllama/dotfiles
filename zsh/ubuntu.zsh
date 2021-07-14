@@ -9,4 +9,9 @@ if [[ -f "/etc/lsb-release" ]] && grep -q 'Ubuntu' /etc/lsb-release 2>&1 >/dev/n
     alias apts="apt search"
     alias aptu="sudo apt update"
     alias ls="ls --color=always --group-directories-first"
+
+if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 fi
