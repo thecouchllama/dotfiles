@@ -15,6 +15,7 @@ alias rgs="batgrep -s"
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
+alias bd=". bd -si"
 
 # bat aliases
 alias cat='bat -p --pager=never'
