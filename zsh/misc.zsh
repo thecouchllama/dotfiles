@@ -7,7 +7,7 @@ setopt autolist automenu nobeep
 export EDITOR="nvim"
 
 # Set Path
-export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.krew/bin"
+export PATH="${HOME}/bin:${HOME}/.local/bin:${HOME}/.krew/bin:${PATH}"
 
 # no c-s/c-q output freezing
 setopt noflowcontrol
