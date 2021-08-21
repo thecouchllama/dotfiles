@@ -1,0 +1,240 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $hyper Mod3
+
+# Font for window titles. Will also be used by the bar unless a different font
+font pango:DejaVuSansMono Nerd Font Mono
+
+# Set border size
+for_window [class="^.*"] border pixel 2
+smart_borders on
+
+#make notifications behave
+for_window [class="Xfce4-notifyd"] floating enable
+for_window [class="Xfce4-notifyd"] border none
+for_window [class="YADWIN"] border none
+for_window [instance="Download"] floating enable
+for_window [class="Pnmixer"] floating enable
+for_window [window_role="plugin_ui"] floating enable
+for_window [title="Menu Update"] floating enable
+for_window [title="___"] floating enable
+
+# Set specific windows as floating
+for_window [title="CSSH"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Anamnesis"] floating enable
+for_window [class="Openxenmanager"] floating enable
+for_window [class="Autokey-gtk"] floating enable
+
+# Make webcam window float and stick
+for_window [title="video0 - mpv"] floating enable
+for_window [title="video0 - mpv"] sticky enable
+
+# gaps
+gaps inner 10
+gaps outer 5
+
+# config colors
+# class                 border  backgr. text    indicator
+client.focused          #214561 #0088ff #ffffff #0088ff
+client.focused_inactive #214561 #214561 #a6a6a6 #214561
+client.unfocused        #214561 #214561 #a6a6a6 #214561
+client.urgent           #1F4662 #ff0900 #ffffff #ff0900
+
+# Key shortcuts
+
+# media keys
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/pacvol.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/i3/pacvol.sh down
+bindsym XF86AudioMute exec ~/.config/i3/pacvol.sh toggle
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Application shortcuts
+bindsym $mod+Return exec alacritty -e tmux new -At default
+bindsym $hyper+Return exec alacritty
+bindsym $hyper+l exec glitchlock
+bindsym $hyper+b exec chromium
+bindsym $hyper+a exec pavucontrol
+bindsym $hyper+F12 exec systemctl poweroff
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
+bindsym $hyper+d exec --no-startup-id doing done
+bindsym $mod+backslash exec --no-startup-id roficlip
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym $mod+Shift+q kill
+bindsym $mod+r exec rofi -modi drun -show drun -display-drun apps
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+semicolon split h
+
+# split in vertical orientation
+bindsym $mod+apostrophe split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# toggle sticky windows
+bindsym $mod+Shift+s sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# bind resize
+bindsym $hyper+r mode "resize"
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Workspace Names
+set $ws1 "1&#xf120;"
+set $ws2 "2&#xf268;"
+set $ws3 "3&#xf075;"
+set $ws4 "4&#xf02d;"
+set $ws5 "5&#xf15c;"
+set $ws6 "6&#xf03d;"
+set $ws7 "7&#xf0c2;"
+set $ws8 "8&#xf0e0;"
+set $ws9 "9&#xf001;"
+set $ws10 "10&#xf17a;"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+}
+
+# Assign clients to specific workspaces
+assign [class="Firefox"] $ws2
+assign [class="Chromium"] $ws2
+assign [class="google-chrome"] $ws2
+assign [class="qutebrowser"] $ws2
+
+assign [class="HipChat"] $ws3
+assign [class="Pidgin"] $ws3
+assign [instance="social" class="Termite"] $ws3
+assign [Class="Slack"] $ws3
+assign [Class="discord"] $ws3
+
+assign [class="nixnote2"] $ws4
+assign [class="Zathura"] $ws4
+assign [class="Zeal"] $ws4
+
+assign [class="010 Editor"] $ws5
+assign [class="Hopper"] $ws5
+assign [class="IDA"] $ws5
+assign [class="Binary Ninja"] $ws5
+
+assign [class="Geeqie"] $ws6
+assign [class="Gimp"] $ws6
+assign [class="Mplayer"] $ws6
+assign [class="Steam"] $ws6
+assign [class="Vlc"] $ws6
+
+assign [class="Remmina"] $ws7
+assign [class="Virt-manager"] $ws7
+assign [class="VirtualBox"] $ws7
+assign [class="Vmware"] $ws7
+assign [class="Vmplayer"] $ws7
+assign [class="rdesktop"] $ws7
+assign [class="Wine"] $ws7
+
+# i3bar
+bar {
+    position bottom
+    status_command i3blocks
+    strip_workspace_numbers yes
+    tray_output primary
+
+    colors {
+      background #1F4662
+      statusline #FFFFFF
+
+      focused_workspace  #1F4662 #1F4662 #1478db
+      active_workspace   #1F4662 #1F4662 #00c5c7
+      inactive_workspace #1F4662 #1F4662 #808080
+      urgent_workspace   #1F4662 #1F4662 #ff2600
+    }
+}
