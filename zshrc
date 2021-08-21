@@ -7,7 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export GITHUB_USER=couchllama
+export GITHUB_USER=thecouchllama
 
 # Install zplug if it doesn't exist
 if [ ! -d "$HOME/.zinit" ]; then
