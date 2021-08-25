@@ -28,6 +28,8 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="Anamnesis"] floating enable
 for_window [class="Openxenmanager"] floating enable
 for_window [class="Autokey-gtk"] floating enable
+for_window [class="^[cC]hromium" title="^Save As$"] floating enable, resize set 1200 800, move position center
+for_window [class="^[cC]hromium" title="^Open File$"] floating enable, resize set 1200 800, move position center
 
 # Make webcam window float and stick
 for_window [title="video0 - mpv"] floating enable
@@ -59,6 +61,7 @@ bindsym $hyper+Return exec alacritty
 bindsym $hyper+l exec glitchlock
 bindsym $hyper+b exec chromium
 bindsym $hyper+a exec pavucontrol
+bindsym $hyper+F11 exec systemctl suspend
 bindsym $hyper+F12 exec systemctl poweroff
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 bindsym $hyper+d exec --no-startup-id doing done
