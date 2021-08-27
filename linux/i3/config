@@ -36,8 +36,8 @@ for_window [title="video0 - mpv"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 
 # gaps
-gaps inner 10
-gaps outer 5
+#gaps inner 10
+#gaps outer 5
 
 # config colors
 # class                 border  backgr. text    indicator
@@ -130,16 +130,16 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Workspace Names
-set $ws1 "1&#xf120;"
-set $ws2 "2&#xf268;"
-set $ws3 "3&#xf075;"
-set $ws4 "4&#xf02d;"
-set $ws5 "5&#xf15c;"
-set $ws6 "6&#xf03d;"
-set $ws7 "7&#xf0c2;"
-set $ws8 "8&#xf0e0;"
-set $ws9 "9&#xf001;"
-set $ws10 "10&#xf17a;"
+set $ws1 "1Term"
+set $ws2 "2Web"
+set $ws3 "3Comms"
+set $ws4 "4Notes"
+set $ws5 "5Code"
+set $ws6 "6RevEng"
+set $ws7 "7Media"
+set $ws8 "8Virt"
+set $ws9 "9Nine"
+set $ws10 "10Ten"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -204,25 +204,28 @@ assign [Class="discord"] $ws3
 assign [class="nixnote2"] $ws4
 assign [class="Zathura"] $ws4
 assign [class="Zeal"] $ws4
+assign [class="Obsidian"] $ws4
 
-assign [class="010 Editor"] $ws5
-assign [class="Hopper"] $ws5
-assign [class="IDA"] $ws5
-assign [class="Binary Ninja"] $ws5
+assign [class="Code"] $ws5
 
-assign [class="Geeqie"] $ws6
-assign [class="Gimp"] $ws6
-assign [class="Mplayer"] $ws6
-assign [class="Steam"] $ws6
-assign [class="Vlc"] $ws6
+assign [class="010 Editor"] $ws6
+assign [class="Hopper"] $ws6
+assign [class="IDA"] $ws6
+assign [class="Binary Ninja"] $ws6
 
-assign [class="Remmina"] $ws7
-assign [class="Virt-manager"] $ws7
-assign [class="VirtualBox"] $ws7
-assign [class="Vmware"] $ws7
-assign [class="Vmplayer"] $ws7
-assign [class="rdesktop"] $ws7
-assign [class="Wine"] $ws7
+assign [class="Geeqie"] $ws7
+assign [class="Gimp"] $ws7
+assign [class="Mplayer"] $ws7
+assign [class="Steam"] $ws7
+assign [class="Vlc"] $ws7
+
+assign [class="Remmina"] $ws8
+assign [class="Virt-manager"] $ws8
+assign [class="VirtualBox"] $ws8
+assign [class="Vmware"] $ws8
+assign [class="Vmplayer"] $ws8
+assign [class="rdesktop"] $ws8
+assign [class="Wine"] $ws8
 
 # i3bar
 bar {
@@ -235,9 +238,9 @@ bar {
       background #1F4662
       statusline #FFFFFF
 
-      focused_workspace  #1F4662 #1F4662 #1478db
-      active_workspace   #1F4662 #1F4662 #00c5c7
-      inactive_workspace #1F4662 #1F4662 #808080
-      urgent_workspace   #1F4662 #1F4662 #ff2600
+      focused_workspace  #1F4662 #1460D2 #ffffff
+      active_workspace   #1F4662 #00C5C7 #ffffff
+      inactive_workspace #1F4662 #275D84 #ffffff
+      urgent_workspace   #1F4662 #FF2600 #ffffff
     }
 }
