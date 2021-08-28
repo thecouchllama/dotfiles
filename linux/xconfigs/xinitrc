@@ -22,7 +22,7 @@ dunst &
 dropbox &
 
 # Start Screensaver
-xautolock -time 7 -locker "glitchlock" -corners --00  -cornerdelay 4 -cornerredelay 4 -detectsleep &
+xautolock -time 7 -locker "i3lock-fancy" -corners --00  -cornerdelay 4 -cornerredelay 4 -detectsleep &
 
 # enable ctrl-alt-backspace
 setxkbmap -option terminate:ctrl_alt_bksp

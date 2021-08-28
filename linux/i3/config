@@ -58,7 +58,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # Application shortcuts
 bindsym $mod+Return exec alacritty -e tmux new -At default
 bindsym $hyper+Return exec alacritty
-bindsym $hyper+l exec glitchlock
+bindsym $hyper+l exec i3lock-fancy
 bindsym $hyper+b exec chromium
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+F11 exec systemctl suspend
@@ -138,8 +138,8 @@ set $ws5 "5Code"
 set $ws6 "6RevEng"
 set $ws7 "7Media"
 set $ws8 "8Virt"
-set $ws9 "9Nine"
-set $ws10 "10Ten"
+set $ws9 "9Games"
+set $ws10 "10Other"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -204,7 +204,7 @@ assign [Class="discord"] $ws3
 assign [class="nixnote2"] $ws4
 assign [class="Zathura"] $ws4
 assign [class="Zeal"] $ws4
-assign [class="Obsidian"] $ws4
+assign [class="obsidian"] $ws4
 
 assign [class="Code"] $ws5
 
@@ -216,7 +216,6 @@ assign [class="Binary Ninja"] $ws6
 assign [class="Geeqie"] $ws7
 assign [class="Gimp"] $ws7
 assign [class="Mplayer"] $ws7
-assign [class="Steam"] $ws7
 assign [class="Vlc"] $ws7
 
 assign [class="Remmina"] $ws8
@@ -226,6 +225,8 @@ assign [class="Vmware"] $ws8
 assign [class="Vmplayer"] $ws8
 assign [class="rdesktop"] $ws8
 assign [class="Wine"] $ws8
+
+assign [class="Steam"] $ws9
 
 # i3bar
 bar {
