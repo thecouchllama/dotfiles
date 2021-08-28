@@ -139,7 +139,7 @@ set $ws6 "6RevEng"
 set $ws7 "7Media"
 set $ws8 "8Virt"
 set $ws9 "9Games"
-set $ws10 "10Other"
+set $ws10 "10Firefox"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -190,7 +190,6 @@ mode "resize" {
 }
 
 # Assign clients to specific workspaces
-assign [class="Firefox"] $ws2
 assign [class="Chromium"] $ws2
 assign [class="google-chrome"] $ws2
 assign [class="qutebrowser"] $ws2
@@ -212,6 +211,7 @@ assign [class="010 Editor"] $ws6
 assign [class="Hopper"] $ws6
 assign [class="IDA"] $ws6
 assign [class="Binary Ninja"] $ws6
+assign [class="install4j-burp-StartBurp"] $ws6
 
 assign [class="Geeqie"] $ws7
 assign [class="Gimp"] $ws7
@@ -227,6 +227,9 @@ assign [class="rdesktop"] $ws8
 assign [class="Wine"] $ws8
 
 assign [class="Steam"] $ws9
+
+assign [class="[fF]irefox"] $ws10
+assign [class="Navigator"] $ws10
 
 # i3bar
 bar {
