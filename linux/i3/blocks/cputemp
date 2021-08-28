@@ -1,0 +1,18 @@
+#!/bin/env bash
+
+temp=$(cat /sys/class/thermal/thermal_zone0/temp | awk '{printf "%2d\n", $1/1000}')
+
+if [ $temp -lt 40 ]; then
+  icon=
+elif [ $temp -lt 50 ]; then
+  icon=
+elif [ $temp -lt 60 ]; then
+  icon=
+elif [ $temp -lt 70 ]; then
+  icon=
+else
+  icon=
+fi
+
+
+echo "<span foreground='#ffffff' background='#808080'> $icon </span><span foreground='#ffffff' background='#275D84'> ${temp}C </span>"
