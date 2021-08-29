@@ -4,5 +4,13 @@ drivepath="${BLOCK_INSTANCE:-$HOME}"
 rawspace=$(btrfs fi df -b "$drivepath" | sed -e 's/.*total=\([0-9]*\),.*/\1/' | tr "\n" " " | sed -e 's/\ $/\n/' -e 's/\ /\ +\ /g' | bc)
 usedspace="$(echo "$rawspace" | awk '{printf "%.2f\n", $1/1024/1024/1024}')"
 totalspace="$(df "$drivepath" | tail -n1 | awk '{printf "%.2f\n", $2/1024/1024}')"
-freespace=$(echo "$totalspace" - "$usedspace" | bc -l)
-printf "<span foreground='#ffffff' background='#808080'> </span><span foreground='#ffffff' background='#275D84'>%.0f</span>" "$freespace"
+freespace=$(printf '%.0f' $(echo "$totalspace" - "$usedspace" | bc -l))
+
+if [ "$freespace" -gt 1000 ]; then
+  size="$(echo $freespace | awk '{printf "%.1f\n", $1/1024}')T"
+else
+  size="${freespace}G"
+fi
+
+
+echo "<span font='14' foreground='#ffffff' background='#808080'>  </span><span foreground='#ffffff' background='#275D84'> $size </span>"
