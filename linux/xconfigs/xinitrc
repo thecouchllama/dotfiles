@@ -15,7 +15,6 @@ nitrogen --restore &
 
 # Start Programs
 clipster -d &
-start-pulseaudio-x11 &
 udiskie &
 unclutter &
 dunst &
