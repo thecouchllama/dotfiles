@@ -20,6 +20,7 @@ udiskie &
 unclutter &
 dunst &
 dropbox &
+blueman-applet &
 
 # Start Screensaver
 xautolock -time 7 -locker "i3lock-fancy" -corners --00  -cornerdelay 4 -cornerredelay 4 -detectsleep &
