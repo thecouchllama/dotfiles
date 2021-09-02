@@ -26,6 +26,7 @@ zinit lucid light-mode for \
   zsh-users/zsh-history-substring-search \
   pick"z.sh" rupa/z \
   changyuheng/fz \
+  depth=2 \
   hlissner/zsh-autopair
 
 # Load personal zsh scripts
