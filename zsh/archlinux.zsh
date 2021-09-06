@@ -2,6 +2,8 @@
 
 if [[ -f "/etc/arch-release" ]]; then
 
+  export PATH="$PATH:/var/lib/snapd/snap/bin"
+
   # Use qt4-ssh-askpass for ssh ask dialog
   export SSH_ASKPASS="/usr/bin/qt4-ssh-askpass"
 
