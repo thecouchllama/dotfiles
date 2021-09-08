@@ -11,25 +11,31 @@ if [[ -f "/usr/bin/task" ]]; then
 
   function td {
           task $1 done
+          task sync
   }
 
   function tlater {
           task $1 modify +later
+          task sync
   }
   function tdel {
           task $1 delete
+          task sync
   }
 
   function tap {
           task add project:$*
+          task sync
   }
 
   function tlp {
           task ls project:$*
+          task sync
   }
 
   function tdep {
           task $1 modify depends:"$2"
+          task sync
   }
 
   # Autocomplete
