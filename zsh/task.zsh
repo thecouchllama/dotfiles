@@ -28,6 +28,11 @@ if [[ -f "/usr/bin/task" ]]; then
           task sync
   }
 
+  function tas {
+          task add project:singletons $*
+          task sync
+  }
+
   function tlp {
           task ls project:$*
           task sync
