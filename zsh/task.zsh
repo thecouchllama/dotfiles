@@ -35,7 +35,6 @@ if [[ -f "/usr/bin/task" ]]; then
 
   function tlp {
           task ls project:$*
-          task sync
   }
 
   function tdep {
