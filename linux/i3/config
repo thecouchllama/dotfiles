@@ -66,6 +66,7 @@ bindsym $hyper+F12 exec systemctl poweroff
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 bindsym $hyper+d exec --no-startup-id doing done
 bindsym $mod+backslash exec --no-startup-id roficlip
+bindsym $hyper+f exec zzzfoo -o xdg-open --no-abstract
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
