@@ -43,6 +43,4 @@ if [[ -f "/etc/arch-release" ]]; then
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 
-  # Start ssh-agent if it's not already running
-  [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 fi

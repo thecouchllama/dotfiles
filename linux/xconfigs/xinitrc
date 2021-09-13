@@ -34,4 +34,6 @@ xcape -e 'Control_R=Escape;Super_R=Tab'
 # Start policy kit
 /usr/lib/polkit-1/polkitd --no-debug
 
+eval $(ssh-agent)
+
 exec i3
