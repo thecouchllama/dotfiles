@@ -76,3 +76,10 @@ if exists('$TMUX')
   augroup end
 endif
 ]])
+
+cmd([[
+augroup DiffGit
+  autocmd!
+  autocmd FileType gitcommit if ! &previewwindow && expand('%:t') !~# 'index' | :DiffGitCached | wincmd k | :res -100 | :res +4 | endif
+augroup end
+]])
