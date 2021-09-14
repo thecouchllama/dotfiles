@@ -2,8 +2,8 @@
 
 if [[ -f "/etc/arch-release" ]]; then
 
-  export PATH="$PATH:/var/lib/snapd/snap/bin"
-  export PATH="$PATH:${HOME}/.local/share/gem/ruby/3.0.0/bin"
+  export GOPATH="${HOME}/go"
+  export PATH="$PATH:/var/lib/snapd/snap/bin:${HOME}/.local/share/gem/ruby/3.0.0/bin:${GOPATH}/bin"
 
   # Use qt4-ssh-askpass for ssh ask dialog
   export SSH_ASKPASS="/usr/bin/qt4-ssh-askpass"
