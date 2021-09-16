@@ -30,12 +30,12 @@ opt.showmatch = true
 g.mapleader = ' '
 
 -- Set backup options
-opt.backup = false                  
+opt.backup = false
 opt.writebackup = false
-opt.backupdir = '/home/llama/.config/nvim/tmp'
+opt.backupdir = vim.fn.stdpath('config') .. '/backup'
 
 -- Undo settings
-opt.undodir = '/home/llama/.config/nvim/undo'
+opt.undodir = vim.fn.stdpath('config') .. '/undo'
 opt.undofile = true
 opt.undolevels = 1000
 opt.undoreload = 10000
