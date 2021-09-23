@@ -4,7 +4,7 @@
 export PATH="$HOME/bin:$PATH"
 
 # Setup Monitor
-xrandr --dpi 192 --output eDP-1 --auto
+xrandr --dpi 144 --output eDP-1 --auto
 xrdb -merge ~/.Xresources
 
 # blank screen after 10 minutes
