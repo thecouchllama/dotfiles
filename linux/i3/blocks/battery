@@ -1,51 +1,41 @@
 #!/bin/sh
-BAT0="/sys/class/power_supply/BAT0"
-
-status="$(cat ${BAT0}/status)"
-
-capacity=$(cat "${BAT0}/capacity")
-
-energy=$(cat "${BAT0}/energy_now")
-
-power=$(cat "${BAT0}/power_now")
-
-watts=$(echo "scale=2;$power / 1000000" | bc)
-
 GRAY="<span rise='2000' font='10' foreground='#ffffff' background='#808080'>"
 BLUE="<span foreground='#ffffff' background='#275D84'>"
 SPACER="<span font='6'> </span>"
 COLOREND="</span>"
 
+UPOWER="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)"
 
-if [ "$status" = "Charging" ] || [ "$status1" = "Charging" ]; then
+state="$(echo "$UPOWER" | grep state | awk '{print $2}')"
+
+if [ "$state" = "charging" ]; then
     label=""
+    untilfull=$(echo "$UPOWER" | grep "time to full" | awk '{print $4 substr($5,1,1)}')
 
-    full=$(cat "${BAT0}/energy_full")
+    watts=$(echo "$UPOWER" | grep energy-rate | awk '{printf("%.1f%s", $2, $3)}')
 
-    untilfull=$((full - energy))
+    echo "${GRAY} ${label} ${COLOREND}${BLUE} $untilfull ${COLOREND}${SPACER}${GRAY}  ${COLOREND}${BLUE} ${watts} ${COLOREND}"
 
-    remaining_usage=$(echo "scale=2;${untilfull} / ${power}" | bc)
+elif [ "$state" = "discharging" ]; then
 
-elif [ "$status" = "Discharging" ] || [ "$status1" = "Discharging" ]; then
+    percent=$(echo "$UPOWER" | grep percentage | awk '{print $2}' |tr -d "%")
 
-    remaining_usage=$(echo "scale=2;${energy} / ${power}" | bc)
+    untilempty=$(echo "$UPOWER" | grep "time to empty" | awk '{print $4 substr($5,1,1)}')
 
-    if [ "$capacity" -ge 90 ]; then
+    watts=$(echo "$UPOWER" | grep energy-rate | awk '{printf("%.1f%s", $2, $3)}')
+
+    if [ "$percent" -ge 90 ]; then
         label=""
-    elif [ "$capacity" -ge 75 ]; then
+    elif [ "$percent" -ge 75 ]; then
         label=""
-    elif [ "$capacity" -ge 50 ]; then
+    elif [ "$percent" -ge 50 ]; then
         label=""
-    elif [ "$capacity" -ge 25 ]; then
+    elif [ "$percent" -ge 25 ]; then
         label=""
-    elif [ "$capacity" -ge 10 ]; then
+    elif [ "$percent" -ge 10 ]; then
         label=""
     fi
-else
-    exit
+
+    echo "${GRAY} ${label} ${COLOREND}${BLUE} $untilempty ${COLOREND}${SPACER}${GRAY}  ${COLOREND}${BLUE} ${watts} ${COLOREND}"
 fi
 
-hours=$(echo "${remaining_usage}" | awk '{printf "%d", $1}')
-minutes=$(echo "${remaining_usage}" | awk '{printf "%0.2d", ($1 % 1) * 60}')
-
-echo "${GRAY} ${label} ${COLOREND}${BLUE} ${hours}:${minutes} ${COLOREND}${SPACER}${GRAY}  ${COLOREND}${BLUE} ${watts} ${COLOREND}"
