@@ -9,7 +9,6 @@ opt.hidden = true                   -- Enable background buffers
 opt.ignorecase = true               -- Ignore case
 opt.joinspaces = false              -- No double spaces with join
 opt.number = true                   -- Show line numbers
-opt.relativenumber = true           -- Relative line numbers
 opt.scrolloff = 4                   -- Lines of context
 opt.shiftround = true               -- Round indent
 opt.shiftwidth = 2                  -- Size of an indent
