@@ -2,6 +2,7 @@ local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local opt = vim.opt  -- to set options
 local g = vim.g      -- a table to access global variables
 
+
 opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 opt.expandtab = true                -- Use spaces instead of tabs
 opt.hidden = true                   -- Enable background buffers

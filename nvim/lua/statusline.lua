@@ -1,14 +1,19 @@
 local cobalt2 = require'lualine.themes.cobalt2'
 
-require("bufferline").setup{}
+require("bufferline").setup{
+ options = {
+   show_close_icon = false,
+   diagnostics = "nvim_lsp"
+ }
+}
 
 require('lualine').setup{
-  options = { 
+  options = {
     theme = cobalt2,
-    section_separators = '', 
+    section_separators = '',
     component_separators = ''
   },
-  sections = {     
+  sections = {
     lualine_a = {'mode'},
     lualine_b = {
       {

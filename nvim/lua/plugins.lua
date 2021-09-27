@@ -1,4 +1,6 @@
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
+local g = vim.g      -- a table to access global variables
+
 -- Install packer if it doesn't already exist
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -27,6 +29,8 @@ require('packer').startup(function()
   }
 
   -- formatting
+  use 'ntpeters/vim-better-whitespace'
+
   -- movement
   use {
   'phaazon/hop.nvim',
@@ -373,3 +377,8 @@ cmp.setup({
       { name = "crates" },
     },
 })
+
+
+-- vim-better-whitespace
+g.strip_whitespace_on_save = 1
+g.strip_whitespace_confirm = 0
