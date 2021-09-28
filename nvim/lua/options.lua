@@ -32,10 +32,10 @@ g.mapleader = ' '
 -- Set backup options
 opt.backup = false
 opt.writebackup = false
-opt.backupdir = vim.fn.stdpath('config') .. '/backup'
+opt.backupdir = vim.fn.stdpath('config') .. '/.backup'
 
 -- Undo settings
-opt.undodir = vim.fn.stdpath('config') .. '/undo'
+opt.undodir = vim.fn.stdpath('config') .. '/.undo'
 opt.undofile = true
 opt.undolevels = 1000
 opt.undoreload = 10000
