@@ -17,6 +17,12 @@ function diff() {
 }
 
 # Renames tmux window to server ssh is being used to connect to
+if [ -f "/opt/homebrew/bin/ssh" ]; then
+  SSH_BINARY="/opt/homebrew/bin/ssh"
+else
+  SSH_BINARY="/usr/bin/ssh"
+fi
+
 function ssh() {
   if [ -n "$TMUX" ] # set only if within running tmux
   then
@@ -33,12 +39,12 @@ function ssh() {
     tmux rename-window ${@[-1]}
 
     # run ssh
-    TERM=xterm-256color /usr/bin/ssh $*
+    TERM=xterm-256color $SSH_BINARY $*
 
     # unset variable so new panes don't continue ssh-ing to this server
     tmux setenv -u $session_variable_name
   else
-    TERM=xterm-256color /usr/bin/ssh $*
+    TERM=xterm-256color $SSH_BINARY $*
   fi
 
   # rename title back
@@ -63,12 +69,12 @@ function sshnh() {
     tmux rename-window ${@[-1]}
 
     # run ssh
-    TERM=xterm-256color /usr/bin/ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+    TERM=xterm-256color $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
 
     # unset variable so new panes don't continue ssh-ing to this server
     tmux setenv -u $session_variable_name
   else
-    TERM=xterm-256color /usr/bin/ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+    TERM=xterm-256color $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
   fi
 
   # rename title back
