@@ -16,4 +16,6 @@ if uname -a | grep -q 'Darwin'; then
   else
     alias ctags="/usr/local/bin/ctags"
   fi
+
+  export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 fi
