@@ -46,8 +46,8 @@ if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ] && ssh-add -l | grep
 fi
 
 # Set title bar prompt
-precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-preexec () {print -Pn "\e]0;%n@%m: $1 (%~)\a"}
+precmd () {print -Pn "\e]0;%~\a"}
+preexec () {print -Pn "\e]0;$1 (%~)\a"}
 
 # Set batcat theme
 export BAT_THEME="cobalt2"
