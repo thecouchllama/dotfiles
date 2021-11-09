@@ -12,7 +12,7 @@ export GITHUB_USER=thecouchllama
 # Install zplug if it doesn't exist
 if [ ! -d "$HOME/.zinit" ]; then
   mkdir ~/.zinit
-  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+  git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
 fi
 
 source ~/.zinit/bin/zinit.zsh
@@ -20,7 +20,7 @@ source ~/.zinit/bin/zinit.zsh
 # zsh plugins
 zinit lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
-  zdharma/fast-syntax-highlighting \
+  zdharma-continuum/fast-syntax-highlighting \
   blockf atpull'zinit creinstall -q "$PWD"' \
   zsh-users/zsh-completions \
   zsh-users/zsh-history-substring-search \
