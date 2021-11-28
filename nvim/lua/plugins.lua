@@ -44,6 +44,14 @@ require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
   use 'ray-x/go.nvim'
 
+  -- vim tmux navigator
+  use {
+    'numToStr/Navigator.nvim',
+    config = function()
+        require('Navigator').setup()
+    end
+  }
+
   -- fuzzy search
   use {
   'nvim-telescope/telescope.nvim',
@@ -67,6 +75,14 @@ require('packer').startup(function()
   }
 
   -- Utility
+  use({
+    'mrjones2014/dash.nvim',
+    requires = { 'nvim-telescope/telescope.nvim' },
+    run = 'make install',
+    disable = not vim.fn.has('macunix'),
+  })
+
+
   use {
     "blackCauldron7/surround.nvim",
     config = function()
@@ -74,13 +90,6 @@ require('packer').startup(function()
     end
   }
   use 'sindrets/diffview.nvim'
-
-  use({
-    'mrjones2014/dash.nvim',
-    requires = { 'nvim-telescope/telescope.nvim' },
-    run = 'make install',
-    disable = not vim.fn.has('macunix'),
-  })
 
 end)
 
@@ -321,9 +330,6 @@ end
 
 local cmp = require'cmp'
 cmp.setup({
-    completion = {
-      autocomplete = false
-    },
     formatting = {
       format = function(entry, vim_item)
         local icons = require("lsp.kind").icons
