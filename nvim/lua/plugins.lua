@@ -44,12 +44,7 @@ require('packer').startup(function()
   use 'ray-x/go.nvim'
 
   -- vim tmux navigator
-  use {
-    'numToStr/Navigator.nvim',
-    config = function()
-        require('Navigator').setup()
-    end
-  }
+  use 'numToStr/Navigator.nvim'
 
   -- fuzzy search
   use {
@@ -361,6 +356,8 @@ cmp.setup({
       { name = "crates" },
     },
 })
+
+require('Navigator').setup()
 
 
 -- vim-better-whitespace
