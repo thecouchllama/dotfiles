@@ -8,6 +8,8 @@ vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').
 -- Import on save
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
+vim.cmd "autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)"
+
 -- map functions
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true, silent = true}
