@@ -19,6 +19,12 @@ map('n', '<leader>s', '<cmd>HopWord<cr>')
 map('n', '<leader>l', '<cmd>HopLine<cr>')
 map('n', '<leader>/', '<cmd>HopPattern<cr>')
 
+-- navigator (tmux)
+map('n', "<C-h>", "<CMD>lua require('Navigator').left()<CR>")
+map('n', "<C-k>", "<CMD>lua require('Navigator').up()<CR>")
+map('n', "<C-l>", "<CMD>lua require('Navigator').right()<CR>")
+map('n', "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
+
 
 -- bufferline
 map('n', '<C-n>', '<cmd>BufferLineCycleNext<cr>')
