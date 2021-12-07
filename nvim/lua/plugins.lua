@@ -41,7 +41,7 @@ require('packer').startup(function()
 
   -- Language Server
   use 'neovim/nvim-lspconfig'
-  use 'ray-x/go.nvim'
+  use 'fatih/vim-go'
 
   -- vim tmux navigator
   use 'numToStr/Navigator.nvim'
