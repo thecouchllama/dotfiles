@@ -20,6 +20,8 @@ require('packer').startup(function()
     }
   }
 
+  use 'tpope/vim-fugitive'
+
   -- status bar
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
