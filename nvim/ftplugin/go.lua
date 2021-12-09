@@ -19,11 +19,11 @@ map('n', '<leader>gt', '<cmd>GoTest<cr>')
 vim.g.go_metalinter_autosave = 1 -- run metalinter on save
 
 -- highlights
--- vim.g.go_highlight_types = 1
--- vim.g.go_highlight_fields = 1
--- vim.g.go_highlight_functions = 1
--- vim.g.go_highlight_function_calls = 1
--- vim.g.go_highlight_operators = 1
--- vim.g.go_highlight_extra_types = 1
+vim.g.go_highlight_types = 1
+vim.g.go_highlight_fields = 1
+vim.g.go_highlight_functions = 1
+vim.g.go_highlight_function_calls = 1
+vim.g.go_highlight_operators = 1
+vim.g.go_highlight_extra_types = 1
 
 -- Fix highlights for gitsigns
