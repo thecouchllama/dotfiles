@@ -63,8 +63,8 @@ require('packer').startup(function()
   use {
     "hrsh7th/nvim-cmp",
     requires = {
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
+      "SirVer/ultisnips",
+      "quangnguyen30192/cmp-nvim-ultisnips",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
@@ -304,7 +304,9 @@ require'diffview'.setup {
   },
 }
 
+require("cmp_nvim_ultisnips").setup{}
 local cmp = require'cmp'
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 cmp.setup({
     formatting = {
       format = function(entry, vim_item)
@@ -316,8 +318,7 @@ cmp.setup({
           path = "(Path)",
           calc = "(Calc)",
           cmp_tabnine = "(Tabnine)",
-          vsnip = "(Snippet)",
-          luasnip = "(Snippet)",
+          ultisnips = "(Snippet)",
           buffer = "(Buffer)",
         })[entry.source.name]
         vim_item.dup = ({
@@ -330,7 +331,7 @@ cmp.setup({
     },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
     documentation = {
@@ -340,22 +341,33 @@ cmp.setup({
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.close(),
-      ["<Tab>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      },
+      ["<Tab>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        end, {
+          "i",
+          "s",
+          -- add this line when using cmp-cmdline:
+          -- "c",
+        }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.jump_backwards(fallback)
+        end, {
+          "i",
+          "s",
+          -- add this line when using cmp-cmdline:
+          -- "c",
+      }),
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "path" },
-      { name = "luasnip" },
-      { name = "cmp_tabnine" },
-      { name = "nvim_lua" },
       { name = "buffer" },
       { name = "calc" },
-      { name = "emoji" },
-      { name = "treesitter" },
       { name = "crates" },
+      { name = "luasnip" },
+      { name = "nvim_lsp" },
+      { name = "nvim_lua" },
+      { name = "path" },
+      { name = "treesitter" },
+      { name = 'ultisnips' },
     },
 })
 
