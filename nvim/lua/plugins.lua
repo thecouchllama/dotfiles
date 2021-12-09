@@ -357,9 +357,9 @@ cmp.setup({
           -- add this line when using cmp-cmdline:
           -- "c",
       }),
+      ['<CR>'] = cmp.mapping.confirm({ select = false })
     },
     sources = {
-      { name = "buffer" },
       { name = "calc" },
       { name = "crates" },
       { name = "luasnip" },
@@ -368,6 +368,7 @@ cmp.setup({
       { name = "path" },
       { name = "treesitter" },
       { name = 'ultisnips' },
+      { name = "buffer" },
     },
 })
 
