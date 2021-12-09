@@ -53,6 +53,7 @@ require('packer').startup(function()
   'nvim-telescope/telescope.nvim',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'junegunn/fzf.vim'
 
   -- comment support
   use 'b3nj5m1n/kommentary'
@@ -86,6 +87,7 @@ require('packer').startup(function()
     end
   }
   use 'sindrets/diffview.nvim'
+  use 'AndrewRadev/splitjoin.vim'
 
 end)
 
