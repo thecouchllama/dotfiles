@@ -25,6 +25,7 @@ opt.title = true                    -- Enable title
 opt.wrap = true                     -- Use word wrapping
 opt.linebreak = true                -- Use line breaks
 opt.spelllang = 'en'                -- Set spellcheck language
+opt.autowrite = true
 opt.autoindent = true
 opt.showmatch = true
 g.mapleader = ' '
