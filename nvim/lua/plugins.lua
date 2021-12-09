@@ -53,6 +53,7 @@ require('packer').startup(function()
   'nvim-telescope/telescope.nvim',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'junegunn/fzf.vim'
 
   -- comment support
@@ -363,6 +364,7 @@ cmp.setup({
 
 require('Navigator').setup()
 
+require('telescope').load_extension('fzf')
 
 -- vim-better-whitespace
 g.strip_whitespace_on_save = 1
