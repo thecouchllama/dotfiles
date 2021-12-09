@@ -54,15 +54,3 @@ opt.foldenable = false
 -- Setup color
 cmd 'colorscheme cobalt2'
 opt.colorcolumn = {80, 120}
-
--- Fix highlights for gitsigns
-cmd([[
-augroup MyColors
-  autocmd!
-  autocmd ColorScheme * highlight SignColumn guibg=#193549
-  autocmd ColorScheme * highlight GitSignsAdd guibg=#193549 guifg=#3ad900
-  autocmd ColorScheme * highlight GitSignsChange guibg=#193549 guifg=#ffc600
-  autocmd ColorScheme * highlight GitSignsDelete guibg=#193549 guifg=#ff2600
-  autocmd ColorScheme * highlight ColorColumn guifg=NONE guibg=#204563 gui=NONE
-augroup end
-]])
