@@ -17,5 +17,5 @@ if uname -a | grep -q 'Darwin'; then
     alias ctags="/usr/local/bin/ctags"
   fi
 
-  export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+  export PATH="$HOME/.gem/ruby/2.6.0/bin:$HOME/go/bin:$PATH"
 fi
