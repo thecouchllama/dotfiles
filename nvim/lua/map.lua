@@ -11,9 +11,6 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 
--- git
-map('n', '<leader><leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
-
 -- hop
 map('n', '<leader>s', '<cmd>HopWord<cr>')
 map('n', '<leader>l', '<cmd>HopLine<cr>')
@@ -48,6 +45,7 @@ map('v', '<C-s>', '<Esc><cmd>w<cr>')
 map('v', '<leader>y', '"+y')
 
 -- fugitive
+map('n', '<leader>gb', '<cmd>Git blame<cr>')
 map('n', '<leader><leader>gb', '<cmd>Git blame<cr>')
 map('n', '<leader><leader>gc', '<cmd>Git commit<cr>')
 map('n', '<leader><leader>gd', '<cmd>Git diff<cr>')
