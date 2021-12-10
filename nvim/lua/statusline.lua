@@ -3,7 +3,7 @@ local cobalt2 = require'lualine.themes.cobalt2'
 require("bufferline").setup{
  options = {
    show_close_icon = false,
-   diagnostics = "nvim_lsp"
+   diagnostics = "nvim_diagnostic"
  }
 }
 
@@ -36,7 +36,7 @@ require('lualine').setup{
     lualine_x = {
       {
       'diagnostics',
-      sources = { "nvim_lsp" },
+      sources = { "nvim_diagnostic" },
       symbols = { error = " ", warn = " ", info = " ", hint = " " },
       color = {},
     },
