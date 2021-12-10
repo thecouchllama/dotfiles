@@ -44,6 +44,7 @@ require('packer').startup(function()
   -- Language Server
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'tamago324/nlsp-settings.nvim'
   use 'fatih/vim-go'
 
   -- vim tmux navigator
