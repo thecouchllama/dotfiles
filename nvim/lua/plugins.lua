@@ -445,18 +445,28 @@ lsp_installer.on_server_ready(function(server)
   }
 
   -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
+  local util = require 'lspconfig.util'
   local server_opts = {
-    -- Provide settings that should only apply to the "eslintls" server
-    ["eslintls"] = function()
-      default_opts.settings = {
-        format = {
-          enable = true,
-        },
+    -- Provide settings that should only apply to the "efm" server
+    ["efm"] = function()
+      default_opts = {
+        root_dir = util.root_pattern(".git", "."),
+        filetypes = { 'sh' },
+        init_options = {documentFormatting = true, codeAction = true},
       }
-    end,
+      on_attach = function(client, bufnr)
+        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+        buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+        buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+        buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+      end
+    end
   }
 
   -- Use the server's custom settings, if they exist, otherwise default to the default options
   local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
   server:setup(server_options)
 end)
+
+-- Format shell files on save
+vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
