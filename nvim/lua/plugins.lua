@@ -45,6 +45,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'fatih/vim-go'
+  use 'buoto/gotests-vim'
 
   -- vim tmux navigator
   use 'numToStr/Navigator.nvim'
@@ -55,6 +56,7 @@ require('packer').startup(function()
   requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
 
   -- comment support
@@ -217,7 +219,6 @@ require'nvim-treesitter.configs'.setup {
 -- vim-go
 vim.g.go_def_mapping_enabled = 0
 vim.g.go_diagnostics_enabled = 0
-vim.g.go_gopls_enabled = 0
 
 -- diffview
 local cb = require'diffview.config'.diffview_callback
