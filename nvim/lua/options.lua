@@ -4,6 +4,7 @@ local g = vim.g      -- a table to access global variables
 
 
 opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
+opt.cmdheight = 2                   -- Set the command height at the bottom to 2 lines
 opt.expandtab = true                -- Use spaces instead of tabs
 opt.hidden = true                   -- Enable background buffers
 opt.ignorecase = true               -- Ignore case
