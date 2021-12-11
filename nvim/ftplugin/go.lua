@@ -20,19 +20,14 @@ map('n', '<leader>gf', '<cmd>GoDecls<cr>')
 map('n', '<leader>gh', '<cmd>GoDescribe<cr>')
 map('n', '<leader>gi', '<cmd>GoImplements<cr>')
 map('n', '<leader>gl', '<cmd>GoMetaLinter<cr>')
-map('n', '<leader>gn', '<cmd>GoRename<cr>')
 map('n', '<leader>gp', '<cmd>GoChannelPeers<cr>')
 map('n', '<leader>gr', '<cmd>GoReferrers<cr>')
 map('n', '<leader>gs', '<cmd>GoAlternateSplit<cr>')
 map('n', '<leader>gv', '<cmd>GoAlternateSplitV<cr>')
-map('n', '<leader>r', '<cmd>GoRun<cr>')
+map('n', '<leader>ru', '<cmd>GoRun<cr>')
 map('n', '<leader>t', '<cmd>GoTest<cr>')
 
-vim.g.go_rename_command = "gopls"
 vim.g.go_fmt_command = "goimports"
-vim.g.go_metalinter_autosave = 1 -- run metalinter on save
-vim.g.go_auto_type_info = 1 -- automatically show info
--- vim.g.go_auto_sameids = 1 -- automatically highlight same ids
 
 -- highlights
 vim.g.go_highlight_types = 1
