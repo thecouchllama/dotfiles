@@ -394,6 +394,7 @@ local servers = {
   "efm",
   "gopls",
   "lua",
+  "pyright",
   "yamlls",
 }
 
