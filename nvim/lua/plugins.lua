@@ -46,6 +46,7 @@ require('packer').startup(function()
   use 'williamboman/nvim-lsp-installer'
   use 'fatih/vim-go'
   use 'buoto/gotests-vim'
+  use 'ray-x/lsp_signature.nvim'
 
   -- vim tmux navigator
   use 'numToStr/Navigator.nvim'
@@ -442,6 +443,13 @@ lsp_installer.on_server_ready(function(server)
        buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
        buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
        buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+       require "lsp_signature".on_attach({
+         bind = true, -- This is mandatory, otherwise border config won't get registered.
+         toggle_key = '<C-s>',
+         handler_opts = {
+         border = "rounded"
+       },
+    }, bufnr)
     end
   }
 
@@ -469,5 +477,7 @@ lsp_installer.on_server_ready(function(server)
   server:setup(server_options)
 end)
 
+
 -- Format shell files on save
 vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
+       require "lsp_signature".on_attach()
