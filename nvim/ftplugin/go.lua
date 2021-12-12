@@ -27,7 +27,8 @@ map('n', '<leader>gr', '<cmd>GoReferrers<cr>')
 map('n', '<leader>gs', '<cmd>GoAlternateSplit<cr>')
 map('n', '<leader>gv', '<cmd>GoAlternateSplitV<cr>')
 map('n', '<leader>ru', '<cmd>GoRun<cr>')
-map('n', '<leader>t', '<cmd>GoTest<cr>')
+map('n', '<leader>ta', '<cmd>GoTest<cr>')
+map('n', '<leader>tf', '<cmd>GoTestFunc<cr>')
 
 vim.g.go_fmt_command = "goimports"
 
