@@ -40,3 +40,19 @@ endfunc
 
 inoremap <F5> <C-o>:call NumberToggle()<cr>
 nnoremap <F5> :call NumberToggle()<cr>
+
+" Toggle relative line numbers
+let s:diagnostictoggle = 1
+function! DiagnosticToggle() abort
+  if s:diagnostictoggle
+    lua vim.diagnostic.disable()
+    let s:diagnostictoggle = 0
+  else
+    lua vim.diagnostic.enable()
+    let s:diagnostictoggle =1
+  endif
+endfunc
+
+inoremap <F4> <C-o>:call DiagnosticToggle()<cr>
+nnoremap <F4> :call DiagnosticToggle()<cr>
+
