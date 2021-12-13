@@ -26,7 +26,7 @@ function! ToggleList(bufname, pfx) abort
   endif
 endfunction
 
-nnoremap <silent> <leader>we :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <silent> <leader>wc :call ToggleList("Quickfix List", 'c')<CR>
 nnoremap <silent> <leader>wl :call ToggleList("Location List", 'l')<CR>
 
 " Toggle relative line numbers

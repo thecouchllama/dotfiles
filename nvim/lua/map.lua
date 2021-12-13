@@ -6,10 +6,12 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- telescope
+map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+map('n', '<leader>fc', '<cmd>Telescope quickfix<cr>')
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 map('n', '<leader>fg', '<cmd>Telescope git_files<cr>')
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+map('n', '<leader>fl', '<cmd>Telescope loclist<cr>')
 
 -- hop
 map('n', '<leader>s', '<cmd>HopWord<cr>')
