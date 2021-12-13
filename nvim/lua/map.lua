@@ -59,3 +59,15 @@ map('n', '<leader><leader>gs', '<cmd>Git<cr><c-w>')
 -- git linker
 map('n', '<leader>gY', '<cmd>lua require"gitlinker".get_repo_url()<cr>')
 map('n', '<leader>gB', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>')
+
+-- ulttest
+map('n', '<leader>ta',  '<cmd>Ultest<cr>')
+map('n', '<leader>tc',  '<cmd>UltestClear<cr>')
+map('n', '<leader>tl',  '<cmd>UltestLast<cr>')
+map('n', '<leader>tn',  '<cmd>UltestNearest<cr>')
+map('n', '<leader>to',  '<cmd>UltestOutput<cr>')
+map('n', '<leader>ts',  '<cmd>UltestSummary!<cr>')
+map('n', '<leader>tx',  '<cmd>UltestStop<cr>')
+map('n', '[t',  '<cmd>:call ultest#positions#prev()<CR>')
+map('n', ']t',  '<cmd>:call ultest#positions#next()<CR>')
+

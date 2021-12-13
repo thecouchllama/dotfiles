@@ -40,6 +40,7 @@ require('lualine').setup{
     },
     lualine_x = {
       {
+      'lsp_progress',
       'diagnostics',
       sources = { "nvim_diagnostic" },
       symbols = { error = " ", warn = " ", info = " ", hint = " " },

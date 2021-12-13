@@ -35,6 +35,7 @@ require('packer').startup(function()
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
+  use 'arkav/lualine-lsp-progress'
   use 'SmiteshP/nvim-gps'
 
   -- formatting
@@ -51,11 +52,16 @@ require('packer').startup(function()
   -- Language Server
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
-  use 'fatih/vim-go'
-  use 'buoto/gotests-vim'
   use 'ray-x/lsp_signature.nvim'
   use 'kosayoda/nvim-lightbulb'
   use 'stevearc/dressing.nvim'
+
+  -- go
+  use 'buoto/gotests-vim'
+  use 'fatih/vim-go'
+
+  -- tests
+  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
   -- vim tmux navigator
   use 'numToStr/Navigator.nvim'
@@ -500,3 +506,5 @@ end)
 -- Format shell files on save
 vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
 
+-- telescope
+vim.cmd "command! -bang Keymap Telescope keymaps"
