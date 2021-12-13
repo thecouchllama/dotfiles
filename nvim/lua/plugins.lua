@@ -27,6 +27,9 @@ require('packer').startup(function()
 
   use 'tpope/vim-fugitive'
 
+  -- markdown
+  use 'ellisonleao/glow.nvim'
+
   -- status bar
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
