@@ -35,8 +35,8 @@ require('packer').startup(function()
 
   -- movement
   use {
-  'phaazon/hop.nvim',
-  as = 'hop',
+    'phaazon/hop.nvim',
+    as = 'hop',
   }
   -- tree-sitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -47,6 +47,8 @@ require('packer').startup(function()
   use 'fatih/vim-go'
   use 'buoto/gotests-vim'
   use 'ray-x/lsp_signature.nvim'
+  use 'kosayoda/nvim-lightbulb'
+  use 'stevearc/dressing.nvim'
 
   -- vim tmux navigator
   use 'numToStr/Navigator.nvim'
@@ -93,6 +95,7 @@ require('packer').startup(function()
   }
   use 'sindrets/diffview.nvim'
   use 'AndrewRadev/splitjoin.vim'
+  use 'folke/lsp-colors.nvim'
 
 end)
 
@@ -427,6 +430,8 @@ lsp_installer.on_server_ready(function(server)
 
       -- Mappings.
       local opts = { noremap=true, silent=true }
+
+      require'nvim-lightbulb'.update_lightbulb()
 
        -- See `:help vim.lsp.*` for documentation on any of the below functions
        buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

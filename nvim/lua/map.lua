@@ -25,10 +25,11 @@ map('n', "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
 -- bufferline
 map('n', '<C-n>', '<cmd>BufferLineCycleNext<cr>')
 map('n', '<C-p>', '<cmd>BufferLineCyclePrev<cr>')
+map('n', '<leader>b', '<cmd>BufferLinePick<cr>')
 
 -- switch quickfix list
-map('n', '<leader>n', '<cmd>cnext<cr>')
-map('n', '<leader>p', '<cmd>cprevious<cr>')
+map('n', ']q', '<cmd>cnext<cr>')
+map('n', '[q', '<cmd>cprevious<cr>')
 
 -- other
 map('n', "<leader>'", '<C-w>s')

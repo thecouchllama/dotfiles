@@ -2,8 +2,9 @@ local cobalt2 = require'lualine.themes.cobalt2'
 
 require("bufferline").setup{
  options = {
+   numbers = "ordinal",
    show_close_icon = false,
-   diagnostics = "nvim_diagnostic"
+   diagnostics = "nvim_lsp"
  }
 }
 
