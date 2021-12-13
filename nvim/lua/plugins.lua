@@ -20,6 +20,11 @@ require('packer').startup(function()
     }
   }
 
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+  }
+
   use 'tpope/vim-fugitive'
 
   -- status bar
@@ -29,6 +34,8 @@ require('packer').startup(function()
   'hoob3rt/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+
+  use 'SmiteshP/nvim-gps'
 
   -- formatting
   use 'ntpeters/vim-better-whitespace'
@@ -100,6 +107,12 @@ require('packer').startup(function()
 end)
 
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+
+-- gitlinker
+require"gitlinker".setup({
+  mappings = "<space>gy"
+})
+
 
 require('gitsigns').setup {
   signs = {
@@ -486,4 +499,4 @@ end)
 
 -- Format shell files on save
 vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
-       require "lsp_signature".on_attach()
+

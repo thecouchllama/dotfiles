@@ -55,3 +55,7 @@ map('n', '<leader><leader>gl', '<cmd>Gclog<cr>')
 map('n', '<leader><leader>gp', '<cmd>Gpush origin HEAD<cr>')
 map('n', '<leader><leader>gr', '<cmd>Gread<cr>')
 map('n', '<leader><leader>gs', '<cmd>Git<cr><c-w>')
+
+-- git linker
+map('n', '<leader>gY', '<cmd>lua require"gitlinker".get_repo_url()<cr>')
+map('n', '<leader>gB', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>')

@@ -8,6 +8,9 @@ require("bufferline").setup{
  }
 }
 
+require("nvim-gps").setup()
+local gps = require("nvim-gps")
+
 require('lualine').setup{
   options = {
     theme = cobalt2,
@@ -24,7 +27,6 @@ require('lualine').setup{
       },
     },
     lualine_c = {
-      'filename',
       {
         'diff',
         symbols = { added = "  ", modified = "柳", removed = " " },
@@ -33,6 +35,8 @@ require('lualine').setup{
         color_removed = '#ff2600',
         color = {},
       },
+      'filename',
+      { gps.get_location, cond = gps.is_available },
     },
     lualine_x = {
       {
