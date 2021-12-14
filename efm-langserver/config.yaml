@@ -15,7 +15,21 @@ tools:
   sh-shfmt: &sh-shfmt
     format-command: 'shfmt -ci -s -bn'
     format-stdin: true
+  markdown-markdownlint: &markdown-markdownlint
+    lint-command: 'markdownlint -s -c %USERPROFILE%\.markdownlintrc'
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l %m'
+      - '%f:%l:%c %m'
+      - '%f: %l: %m'
+
+  markdown-pandoc: &markdown-pandoc
+    format-command: 'pandoc -f markdown -t gfm -sp --tab-stop=2'
 languages:
     sh:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
+
+    markdown:
+    - <<: *markdown-markdownlint
+    - <<: *markdown-pandoc
