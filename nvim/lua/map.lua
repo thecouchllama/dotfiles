@@ -12,6 +12,7 @@ map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 map('n', '<leader>fg', '<cmd>Telescope git_files<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 map('n', '<leader>fl', '<cmd>Telescope loclist<cr>')
+map('n', '<f1>', '<cmd>Telescope help_tags<cr>')
 
 -- hop
 map('n', '<leader>s', '<cmd>HopWord<cr>')
@@ -76,3 +77,13 @@ map('n', ']t',  '<cmd>:call ultest#positions#next()<CR>')
 -- glow
 map('n', '<leader>m',  '<cmd>Glow<cr>')
 map('n', '<C-w>z',  '<C-w>|<C-w>_')
+
+-- other
+map('n', '<F4>', '<cmd>noh<cr>')
+map('i', '<F4>', '<C-o><cmd>noh<cr>')
+map('n', '<F7>', '<cmd>set spell!<cr>')
+map('i', '<F7>', '<C-o><cmd>set spell!<cr>')
+map('n', '<F8>', '<cmd>set list!<cr>')
+map('i', '<F8>', '<C-o><cmd>set list!<cr>')
+map('n', '<F9>', '<cmd>lua require"toggle_cmp".toggle_completion()<cr>')
+map('i', '<F9>', '<C-o><cmd>lua require"toggle_cmp".toggle_completion()<cr>')

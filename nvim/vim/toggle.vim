@@ -53,6 +53,5 @@ function! DiagnosticToggle() abort
   endif
 endfunc
 
-inoremap <F4> <C-o>:call DiagnosticToggle()<cr>
-nnoremap <F4> :call DiagnosticToggle()<cr>
-
+inoremap <F3> <C-o>:call DiagnosticToggle()<cr>
+nnoremap <F3> :call DiagnosticToggle()<cr>
