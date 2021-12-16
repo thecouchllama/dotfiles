@@ -402,7 +402,9 @@ cmp.setup({
     },
 })
 
-require('Navigator').setup()
+if vim.env.TMUX then
+  require('Navigator').setup()
+end
 
 require('telescope').load_extension('fzf')
 
