@@ -21,6 +21,7 @@ map('n', '<leader>gl', '<cmd>GoMetaLinter<cr>')
 map('n', '<leader>gp', '<cmd>GoChannelPeers<cr>')
 map('n', '<leader>gr', '<cmd>GoReferrers<cr>')
 map('n', '<leader>gs', '<cmd>GoAlternateSplit<cr>')
+map('n', '<leader>gt', '<cmd>GoTest<cr>')
 map('n', '<leader>gv', '<cmd>GoAlternateSplitV<cr>')
 map('n', '<leader>ru', '<cmd>GoRun<cr>')
 
