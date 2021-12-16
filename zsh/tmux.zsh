@@ -10,6 +10,10 @@ if [ "$TMUX" ]; then
   fi
 
   function ssh() {
+    if [ "$TERM" == "screen-256color" ]; then
+      TERM=xterm-256color
+    fi
+
     if [ -n "$TMUX" ] # set only if within running tmux
     then
       window_index=$(tmux display-message -p '#I')
@@ -25,12 +29,12 @@ if [ "$TMUX" ]; then
       tmux rename-window ${@[-1]}
 
       # run ssh
-      TERM=xterm-256color $SSH_BINARY $*
+      $SSH_BINARY $*
 
       # unset variable so new panes don't continue ssh-ing to this server
       tmux setenv -u $session_variable_name
     else
-      TERM=xterm-256color $SSH_BINARY $*
+      $SSH_BINARY $*
     fi
 
     # rename title back
@@ -40,6 +44,10 @@ if [ "$TMUX" ]; then
 # Renames tmux window to server ssh is being used to connect to
 # Doesn't save key in known_hosts
   function sshnh() {
+    if [ "$TERM" == "screen-256color" ]; then
+      TERM=xterm-256color
+    fi
+
     if [ -n "$TMUX" ] # set only if within running tmux
     then
       window_index=$(tmux display-message -p '#I')
@@ -55,12 +63,12 @@ if [ "$TMUX" ]; then
       tmux rename-window ${@[-1]}
 
       # run ssh
-      TERM=xterm-256color $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+      $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
 
       # unset variable so new panes don't continue ssh-ing to this server
       tmux setenv -u $session_variable_name
     else
-      TERM=xterm-256color $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+      $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
     fi
 
     # rename title back
@@ -68,6 +76,10 @@ if [ "$TMUX" ]; then
   }
 
   function sshnhr() {
+    if [ "$TERM" == "screen-256color" ]; then
+      TERM=xterm-256color
+    fi
+
     if [ -n "$TMUX" ] # set only if within running tmux
     then
       window_index=$(tmux display-message -p '#I')
@@ -83,12 +95,12 @@ if [ "$TMUX" ]; then
       tmux rename-window ${@[-1]}
 
       # run ssh
-      TERM=xterm-256color $SSH_BINARY -l root -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+      $SSH_BINARY -l root -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
 
       # unset variable so new panes don't continue ssh-ing to this server
       tmux setenv -u $session_variable_name
     else
-      TERM=xterm-256color $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
+      $SSH_BINARY -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" $*
     fi
 
     # rename title back
