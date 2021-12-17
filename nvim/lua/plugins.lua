@@ -75,8 +75,7 @@ require('packer').startup(function()
   requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
+  use 'cljoly/telescope-repo.nvim'
 
   -- comment support
   use 'b3nj5m1n/kommentary'
@@ -407,6 +406,7 @@ if vim.env.TMUX then
 end
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('repo')
 
 -- vim-better-whitespace
 g.strip_whitespace_on_save = 1

@@ -12,6 +12,7 @@ map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 map('n', '<leader>fg', '<cmd>Telescope git_files<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 map('n', '<leader>fl', '<cmd>Telescope loclist<cr>')
+map('n', '<leader>fr', '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>')
 map('n', '<f1>', '<cmd>Telescope help_tags<cr>')
 
 -- hop
