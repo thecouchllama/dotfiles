@@ -63,6 +63,12 @@ require('packer').startup(function()
   use 'buoto/gotests-vim'
   use 'fatih/vim-go'
 
+  -- dap
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'nvim-telescope/telescope-dap.nvim'
+
   -- tests
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
