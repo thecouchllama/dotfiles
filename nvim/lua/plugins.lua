@@ -76,6 +76,7 @@ require('packer').startup(function()
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'cljoly/telescope-repo.nvim'
+  use 'fhill2/telescope-ultisnips.nvim'
 
   -- comment support
   use 'b3nj5m1n/kommentary'
@@ -407,6 +408,7 @@ end
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
+require('telescope').load_extension('ultisnips')
 
 -- vim-better-whitespace
 g.strip_whitespace_on_save = 1
@@ -455,30 +457,29 @@ lsp_installer.on_server_ready(function(server)
       -- Mappings.
       local opts = { noremap=true, silent=true }
 
-      require'nvim-lightbulb'.update_lightbulb()
-
-       -- See `:help vim.lsp.*` for documentation on any of the below functions
-       buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-       buf_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
-       buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-       buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-       buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-       buf_set_keymap('n', '<space>D', '<cmd>Telescope lsp_type_definitions<CR>', opts)
-       buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-       buf_set_keymap('n', '<space>o', '<cmd>Telescope lsp_document_symbols<CR>', opts)
-       buf_set_keymap('n', '<space>c', '<cmd>Telescope lsp_code_actions<CR>', opts)
-       buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
-       buf_set_keymap('n', '<space>e', '<cmd>Telescope lsp_document_diagnostics<CR>', opts)
-       buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-       buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-       buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-       buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-       require "lsp_signature".on_attach({
-         bind = true, -- This is mandatory, otherwise border config won't get registered.
-         toggle_key = '<C-s>',
-         handler_opts = {
-         border = "rounded"
-       },
+      vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+      -- See `:help vim.lsp.*` for documentation on any of the below functions
+      buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+      buf_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+      buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+      buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+      buf_set_keymap('n', '<space>D', '<cmd>Telescope lsp_type_definitions<CR>', opts)
+      buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+      buf_set_keymap('n', '<space>o', '<cmd>Telescope lsp_document_symbols<CR>', opts)
+      buf_set_keymap('n', '<space>c', '<cmd>Telescope lsp_code_actions<CR>', opts)
+      buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+      buf_set_keymap('n', '<space>e', '<cmd>Telescope lsp_document_diagnostics<CR>', opts)
+      buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+      buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+      buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+      buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+      require "lsp_signature".on_attach({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        toggle_key = '<C-s>',
+        handler_opts = {
+        border = "rounded"
+      },
     }, bufnr)
     end
   }
@@ -513,3 +514,4 @@ vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
 
 -- telescope
 vim.cmd "command! -bang Keymap Telescope keymaps"
+
