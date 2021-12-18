@@ -27,10 +27,19 @@ map('n', "<C-k>", "<CMD>lua require('Navigator').up()<CR>")
 map('n', "<C-l>", "<CMD>lua require('Navigator').right()<CR>")
 map('n', "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
 
--- bufferline
-map('n', '<C-n>', '<cmd>BufferLineCycleNext<cr>')
-map('n', '<C-p>', '<cmd>BufferLineCyclePrev<cr>')
-map('n', '<leader>b', '<cmd>BufferLinePick<cr>')
+-- barbar
+map('n', '<C-n>', '<cmd>BufferNext<cr>')
+map('n', '<C-p>', '<cmd>BufferPrevious<cr>')
+map('n', '<leader>a', '<cmd>BufferPick<cr>')
+map('n', '<leader>1', '<cmd>BufferGoto 1<CR>')
+map('n', '<leader>2', '<cmd>BufferGoto 2<CR>')
+map('n', '<leader>3', '<cmd>BufferGoto 3<CR>')
+map('n', '<leader>4', '<cmd>BufferGoto 4<CR>')
+map('n', '<leader>5', '<cmd>BufferGoto 5<CR>')
+map('n', '<leader>6', '<cmd>BufferGoto 6<CR>')
+map('n', '<leader>7', '<cmd>BufferGoto 7<CR>')
+map('n', '<leader>8', '<cmd>BufferGoto 8<CR>')
+map('n', '<leader>9', '<cmd>BufferGoto 9<CR>')
 
 -- switch quickfix list
 map('n', ']q', '<cmd>cnext<cr>')

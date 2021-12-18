@@ -31,7 +31,10 @@ require('packer').startup(function()
   use 'ellisonleao/glow.nvim'
 
   -- status bar
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 
   use {
   'nvim-lualine/lualine.nvim',

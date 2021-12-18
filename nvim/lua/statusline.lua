@@ -1,12 +1,11 @@
 local cobalt2 = require'lualine.themes.cobalt2'
 
-require("bufferline").setup{
- options = {
-   numbers = "ordinal",
-   show_close_icon = false,
-   diagnostics = "nvim_lsp"
- }
+vim.g.bufferline = {
+  closable = true,
+  clickable = false,
+  maximum_padding = 1
 }
+
 
 require("nvim-gps").setup()
 local gps = require("nvim-gps")
@@ -51,3 +50,4 @@ require('lualine').setup{
     lualine_y = {'progress'},
   }
 }
+
