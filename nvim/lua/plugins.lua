@@ -461,6 +461,7 @@ lsp_installer.on_server_ready(function(server)
         bind = true, -- This is mandatory, otherwise border config won't get registered.
         fix_pos = true,
         toggle_key = '<F2>',
+        hi_parameter = "Search",
         handler_opts = {
         border = "rounded"
       },
