@@ -349,12 +349,9 @@ cmp.setup({
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
-          nvim_lsp = "(LSP)",
-          emoji = "(Emoji)",
-          path = "(Path)",
-          calc = "(Calc)",
-          cmp_tabnine = "(Tabnine)",
           ultisnips = "(Snippet)",
+          nvim_lsp = "(LSP)",
+          path = "(Path)",
           buffer = "(Buffer)",
         })[entry.source.name]
         vim_item.dup = ({
@@ -377,33 +374,13 @@ cmp.setup({
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.close(),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-        end, {
-          "i",
-          "s",
-          -- add this line when using cmp-cmdline:
-          -- "c",
-        }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-          cmp_ultisnips_mappings.jump_backwards(fallback)
-        end, {
-          "i",
-          "s",
-          -- add this line when using cmp-cmdline:
-          -- "c",
-      }),
-      ['<CR>'] = cmp.mapping.confirm({ select = false })
+      ['<Tab>'] = cmp.mapping.confirm({ select = false })
     },
     sources = {
-      { name = "calc" },
-      { name = "crates" },
-      { name = "luasnip" },
+      { name = 'ultisnips' },
       { name = "nvim_lsp" },
-      { name = "nvim_lua" },
       { name = "path" },
       { name = "treesitter" },
-      { name = 'ultisnips' },
       { name = "buffer" },
     },
 })
@@ -482,7 +459,8 @@ lsp_installer.on_server_ready(function(server)
       buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
       require "lsp_signature".on_attach({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
-        toggle_key = '<C-s>',
+        fix_pos = true,
+        toggle_key = '<F2>',
         handler_opts = {
         border = "rounded"
       },
