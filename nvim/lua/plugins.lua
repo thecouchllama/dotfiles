@@ -377,7 +377,23 @@ cmp.setup({
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.close(),
-      ['<Tab>'] = cmp.mapping.confirm({ select = false })
+      ['<Tab>'] = cmp.mapping.confirm({ select = false }),
+      ["<Down>"] = cmp.mapping(function(fallback)
+        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        end, {
+          "i",
+          "s",
+          -- add this line when using cmp-cmdline:
+          -- "c",
+        }),
+      ["<Up>"] = cmp.mapping(function(fallback)
+        cmp_ultisnips_mappings.jump_backwards(fallback)
+        end, {
+          "i",
+          "s",
+          -- add this line when using cmp-cmdline:
+          -- "c",
+        }),
     },
     sources = {
       { name = 'ultisnips' },

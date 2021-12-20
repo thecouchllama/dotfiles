@@ -29,7 +29,9 @@ map('n', "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
 
 -- barbar
 map('n', '<C-n>', '<cmd>BufferNext<cr>')
+map('n', '<Right>', '<cmd>BufferNext<cr>')
 map('n', '<C-p>', '<cmd>BufferPrevious<cr>')
+map('n', '<Left>', '<cmd>BufferPrevious<cr>')
 map('n', '<leader>a', '<cmd>BufferPick<cr>')
 map('n', '<leader>1', '<cmd>BufferGoto 1<CR>')
 map('n', '<leader>2', '<cmd>BufferGoto 2<CR>')
