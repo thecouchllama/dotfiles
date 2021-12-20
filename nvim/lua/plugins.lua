@@ -61,6 +61,7 @@ require('packer').startup(function()
   use 'ray-x/lsp_signature.nvim'
   use 'kosayoda/nvim-lightbulb'
   use 'stevearc/dressing.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- go
   use 'buoto/gotests-vim'
@@ -423,7 +424,6 @@ local lsp_installer = require "nvim-lsp-installer"
 -- Include the servers you want to have installed by default below
 local servers = {
   "bashls",
-  "efm",
   "gopls",
   "lua",
   "pyright",
@@ -461,21 +461,6 @@ lsp_installer.on_server_ready(function(server)
 
       vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      buf_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
-      buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-      buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      buf_set_keymap('n', '<space>D', '<cmd>Telescope lsp_type_definitions<CR>', opts)
-      buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-      buf_set_keymap('n', '<space>o', '<cmd>Telescope lsp_document_symbols<CR>', opts)
-      buf_set_keymap('n', '<space>c', '<cmd>Telescope lsp_code_actions<CR>', opts)
-      buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
-      buf_set_keymap('n', '<space>e', '<cmd>Telescope lsp_document_diagnostics<CR>', opts)
-      buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-      buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-      buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-      buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
       require "lsp_signature".on_attach({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
         fix_pos = true,
@@ -487,29 +472,6 @@ lsp_installer.on_server_ready(function(server)
     }, bufnr)
     end
   }
-
-  -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
-  local util = require 'lspconfig.util'
-  local server_opts = {
-    -- Provide settings that should only apply to the "efm" server
-    ["efm"] = function()
-      default_opts = {
-        root_dir = util.root_pattern(".git", "."),
-        filetypes = { 'sh' },
-        init_options = {documentFormatting = true, codeAction = true},
-      }
-      on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-        buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-        buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-      end
-    end
-  }
-
-  -- Use the server's custom settings, if they exist, otherwise default to the default options
-  local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
-  server:setup(server_options)
 end)
 
 
@@ -519,3 +481,36 @@ vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
 -- telescope
 vim.cmd "command! -bang Keymap Telescope keymaps"
 
+-- null-ls
+local null_ls = require("null-ls")
+require("null-ls").setup({
+  sources = {
+    -- null_ls.builtins.code_actions.proselint,
+    -- null_ls.builtins.code_actions.refactoring,
+     null_ls.builtins.code_actions.shellcheck,
+    -- null_ls.builtins.diagnostics.ansiblelint,
+    -- null_ls.builtins.diagnostics.codespell,
+    -- null_ls.builtins.diagnostics.cspell,
+     null_ls.builtins.diagnostics.markdownlint,
+    -- null_ls.builtins.diagnostics.misspell,
+    -- null_ls.builtins.diagnostics.proselin,
+     null_ls.builtins.diagnostics.shellcheck,
+    -- null_ls.builtins.diagnostics.write_good,
+    -- null_ls.builtins.diagnostics.yamllint,
+    -- null_ls.builtins.formatting.black,
+    -- null_ls.builtins.formatting.codespell,
+    -- null_ls.builtins.formatting.fixjson,
+    -- null_ls.builtins.formatting.golines,
+    -- null_ls.builtins.formatting.markdownlint,
+    -- null_ls.builtins.formatting.prettier,
+    -- null_ls.builtins.formatting.prettierd,
+    -- null_ls.builtins.formatting.shellharden,
+     null_ls.builtins.formatting.shfmt,
+  },
+  -- you can reuse a shared lspconfig on_attach callback here
+  on_attach = function(client)
+      if client.resolved_capabilities.document_formatting then
+          vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+      end
+  end,
+})
