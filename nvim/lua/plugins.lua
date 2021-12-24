@@ -472,6 +472,11 @@ lsp_installer.on_server_ready(function(server)
     }, bufnr)
     end
   }
+  local server_opts = {}
+
+  -- Use the server's custom settings, if they exist, otherwise default to the default options
+  local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
+  server:setup(server_options)
 end)
 
 
