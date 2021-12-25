@@ -122,6 +122,7 @@ require('packer').startup(function()
   use 'sindrets/diffview.nvim'
   use 'AndrewRadev/splitjoin.vim'
   use 'folke/lsp-colors.nvim'
+  use 'tpope/vim-unimpaired'
 
 end)
 

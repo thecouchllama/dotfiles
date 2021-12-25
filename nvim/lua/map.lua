@@ -43,10 +43,6 @@ map('n', '<leader>7', '<cmd>BufferGoto 7<CR>')
 map('n', '<leader>8', '<cmd>BufferGoto 8<CR>')
 map('n', '<leader>9', '<cmd>BufferGoto 9<CR>')
 
--- switch quickfix list
-map('n', ']q', '<cmd>cnext<cr>')
-map('n', '[q', '<cmd>cprevious<cr>')
-
 -- other
 map('n', "<leader>'", '<C-w>s')
 map('n', '<leader>;', '<C-w>v')
