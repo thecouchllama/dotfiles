@@ -29,6 +29,6 @@ vim.g.go_code_completion_enabled = 0
 vim.g.go_fmt_command = "goimports"
 vim.g.go_code_completion_enabled = 0
 vim.g.go_metalinter_command = "golangci-lint"
-vim.cmd "let g:go_metalinter_enabled = ['revive', 'errcheck', 'godox', 'gomnd', 'prealloc', 'predeclared', 'wsl', 'deadcode', 'gosimple', 'govet', 'ineffassign', 'staticcheck', 'structcheck', 'typecheck', 'unused', 'varcheck']"
+vim.cmd "let g:go_metalinter_enabled = ['revive', 'errcheck', 'godox', 'prealloc', 'predeclared', 'wsl', 'deadcode', 'gosimple', 'govet', 'ineffassign', 'staticcheck', 'structcheck', 'typecheck', 'unused', 'varcheck']"
 -- vim.g.go_imports_autosave = 0
 -- vim.g.go_def_mapping_enabled = 0

@@ -548,15 +548,41 @@ require("null-ls").setup({
     -- null_ls.builtins.diagnostics.ansiblelint,
     -- null_ls.builtins.diagnostics.codespell,
     -- null_ls.builtins.diagnostics.cspell,
+    -- TODO: Replace this with a golangci yml config file
     null_ls.builtins.diagnostics.golangci_lint.with({
       extra_args = {
-        "--enable-all",
-        "--fast",
-        "--fix=true",
-        "-D",
-        "gochecknoglobals",
-        "-D",
-        "paralleltest",
+        "-E",
+        "revive",
+        "-E",
+        "bidichk",
+        "-E",
+        "errname",
+        "-E",
+        "errorlint",
+        "-E",
+        "funlen",
+        "-E",
+        "goconst",
+        "-E",
+        "gocritic",
+        "-E",
+        "godox",
+        "-E",
+        "gosec",
+        "-E",
+        "ifshort",
+        "-E",
+        "nestif",
+        "-E",
+        "prealloc",
+        "-E",
+        "predeclared",
+        "-E",
+        "testpackage",
+        "-E",
+        "wsl",
+        "-E",
+        "wrapcheck"
       },
     }),
     null_ls.builtins.diagnostics.markdownlint,
@@ -579,7 +605,6 @@ require("null-ls").setup({
       args = {"--base-formatter=gofumpt"}
     })
   },
-  debug = true,
   -- you can reuse a shared lspconfig on_attach callback here
   on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
