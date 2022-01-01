@@ -346,8 +346,36 @@ require'diffview'.setup {
   },
 }
 
+require("luasnip/loaders/from_vscode").lazy_load()
+local luasnip = require "luasnip"
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
 local cmp = require'cmp'
 cmp.setup({
+    confirm_opts = {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    },
+    completion = {
+      get_trigger_characters = function(trigger_characters)
+        return vim.tbl_filter(function(char)
+          return char ~= ' '
+        end, trigger_characters)
+      end,
+      keyword_length = 2,
+    },
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
@@ -360,9 +388,11 @@ cmp.setup({
           buffer = 1,
           path = 1,
           nvim_lsp = 0,
+          luasnip = 1,
         })[entry.source.name] or 0
         return vim_item
       end,
+      duplicates_default = 0,
     },
     snippet = {
       expand = function(args)
@@ -376,7 +406,30 @@ cmp.setup({
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.close(),
-      ['<Tab>'] = cmp.mapping.confirm({ select = false }),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if luasnip.expand_or_jumpable() then
+          vim.fn.feedkeys(t('<Plug>luasnip-expand-or-jump'), '')
+        elseif cmp and cmp.visible() then
+        cmp.select_next_item()
+        else
+          fallback()
+        end
+      end, {
+        "i",
+        "s"
+      }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if luasnip.jumpable(-1) then
+          vim.fn.feedkeys(t('<Plug>luasnip-jump-prev'), '')
+        elseif cmp and cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end, {
+        "i",
+        "s"
+      }),
       ["<Down>"] = cmp.mapping(function(fallback)
         cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
         end, {
