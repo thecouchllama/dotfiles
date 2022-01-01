@@ -1,0 +1,33 @@
+---
+linters:
+  enable:
+    - bidichk
+    - bodyclose
+    - deadcode
+    - errcheck
+    - errname
+    - errorlint
+    - funlen
+    - goconst
+    - gocritic
+    - gocyclo
+    - godox
+    - gofmt
+    - goimports
+    - gomnd
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ifshort
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - nestif
+    - prealloc
+    - predeclared
+    - revive
+    - testpackage
+    - wrapcheck
+    - wsl
