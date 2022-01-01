@@ -102,6 +102,7 @@ require('packer').startup(function()
       "hrsh7th/cmp-nvim-lua",
     }
   }
+  use 'rafamadriz/friendly-snippets'
 
   -- Utility
   use({
@@ -346,7 +347,7 @@ require'diffview'.setup {
   },
 }
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").lazy_load({ paths = { vim.fn.stdpath('config') .. "/snippets" } })
 local luasnip = require "luasnip"
 
 local t = function(str)
