@@ -86,7 +86,6 @@ require('packer').startup(function()
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'cljoly/telescope-repo.nvim'
-  use 'fhill2/telescope-ultisnips.nvim'
 
   -- comment support
   use 'b3nj5m1n/kommentary'
@@ -95,8 +94,8 @@ require('packer').startup(function()
   use {
     "hrsh7th/nvim-cmp",
     requires = {
-      "SirVer/ultisnips",
-      "quangnguyen30192/cmp-nvim-ultisnips",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
@@ -347,14 +346,12 @@ require'diffview'.setup {
   },
 }
 
-require("cmp_nvim_ultisnips").setup{}
 local cmp = require'cmp'
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 cmp.setup({
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
-          ultisnips = "(Snippet)",
+          luasnip = "(Snippet)",
           nvim_lsp = "(LSP)",
           path = "(Path)",
           buffer = "(Buffer)",
@@ -369,8 +366,8 @@ cmp.setup({
     },
     snippet = {
       expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
-      end,
+        require'luasnip'.lsp_expand(args.body)
+      end
     },
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -398,7 +395,7 @@ cmp.setup({
         }),
     },
     sources = {
-      { name = 'ultisnips' },
+      { name = 'luasnip' },
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "treesitter" },
@@ -412,7 +409,6 @@ end
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
-require('telescope').load_extension('ultisnips')
 
 -- vim-better-whitespace
 g.strip_whitespace_on_save = 1
