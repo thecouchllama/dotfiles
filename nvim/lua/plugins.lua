@@ -520,7 +520,7 @@ lsp_installer.on_server_ready(function(server)
         hi_parameter = "Search",
         handler_opts = {
         border = "rounded"
-      },
+     },
     }, bufnr)
     end
   }
@@ -544,30 +544,46 @@ require("null-ls").setup({
   sources = {
     -- null_ls.builtins.code_actions.proselint,
     -- null_ls.builtins.code_actions.refactoring,
-     null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.code_actions.shellcheck,
     -- null_ls.builtins.diagnostics.ansiblelint,
     -- null_ls.builtins.diagnostics.codespell,
     -- null_ls.builtins.diagnostics.cspell,
-     null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.diagnostics.golangci_lint.with({
+      extra_args = {
+        "--enable-all",
+        "--fast",
+        "--fix=true",
+        "-D",
+        "gochecknoglobals",
+        "-D",
+        "paralleltest",
+      },
+    }),
+    null_ls.builtins.diagnostics.markdownlint,
     -- null_ls.builtins.diagnostics.misspell,
     -- null_ls.builtins.diagnostics.proselin,
-     null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.diagnostics.shellcheck,
     -- null_ls.builtins.diagnostics.write_good,
     -- null_ls.builtins.diagnostics.yamllint,
     -- null_ls.builtins.formatting.black,
     -- null_ls.builtins.formatting.codespell,
     -- null_ls.builtins.formatting.fixjson,
     -- null_ls.builtins.formatting.golines,
+    -- null_ls.builtins.formatting.gofumpt
     -- null_ls.builtins.formatting.markdownlint,
     -- null_ls.builtins.formatting.prettier,
     -- null_ls.builtins.formatting.prettierd,
     -- null_ls.builtins.formatting.shellharden,
-     null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.formatting.golines.with({
+      args = {"--base-formatter=gofumpt"}
+    })
   },
+  debug = true,
   -- you can reuse a shared lspconfig on_attach callback here
   on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
-          vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+          vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
       end
   end,
 })
