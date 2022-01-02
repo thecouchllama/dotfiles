@@ -63,8 +63,9 @@ require("packer").startup(function()
 	use("stevearc/dressing.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- go
+	-- languages
 	use("ray-x/go.nvim")
+	use("towolf/vim-helm")
 
 	-- dap
 	use("mfussenegger/nvim-dap")
