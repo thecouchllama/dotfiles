@@ -530,10 +530,6 @@ lsp_installer.on_server_ready(function(server)
   server:setup(server_options)
 end)
 
-
--- Format shell files on save
-vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync()'
-
 -- telescope
 vim.cmd "command! -bang Keymap Telescope keymaps"
 
@@ -557,8 +553,10 @@ require("null-ls").setup({
   },
   -- you can reuse a shared lspconfig on_attach callback here
   on_attach = function(client)
+      vim.g.nullLsFormat = 1
       if client.resolved_capabilities.document_formatting then
-          vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+          vim.cmd("autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif")
+          vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
       end
   end,
 })
