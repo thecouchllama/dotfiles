@@ -64,8 +64,7 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
 
   -- go
-  use 'buoto/gotests-vim'
-  use 'fatih/vim-go'
+  use 'ray-x/go.nvim'
 
   -- dap
   use 'mfussenegger/nvim-dap'
