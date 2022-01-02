@@ -29,6 +29,7 @@ linters:
     - gocritic
     - gocyclo
     - godox
+    - godot
     - gofmt
     - goimports
     - gomnd
