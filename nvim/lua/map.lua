@@ -124,3 +124,12 @@ map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 map("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 map("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+
+-- trouble
+map("n", "<space>xc", "<cmd>TroubleClose<cr>")
+map("n", "<space>xd", "<cmd>Trouble document_diagnostics<cr>")
+map("n", "<space>xl", "<cmd>Trouble loclist<cr>")
+map("n", "<space>xq", "<cmd>Trouble quickfix<cr>")
+map("n", "<space>xw", "<cmd>Trouble workspace_diagnostics<cr>")
+map("n", "<space>xx", "<cmd>Trouble<cr>")
+map("n", "gR", "<cmd>Trouble lsp_references<cr>")

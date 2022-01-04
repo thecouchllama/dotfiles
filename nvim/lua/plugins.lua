@@ -63,6 +63,17 @@ require("packer").startup(function()
 	use("stevearc/dressing.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 	-- languages
 	use("ray-x/go.nvim")
 	use("towolf/vim-helm")
