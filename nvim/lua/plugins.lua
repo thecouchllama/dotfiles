@@ -561,7 +561,7 @@ require("null-ls").setup({
 		null_ls.builtins.formatting.codespell,
 		null_ls.builtins.formatting.fixjson,
 		null_ls.builtins.formatting.golines.with({
-			args = { "--base-formatter=gofumpt" },
+			args = { "--base-formatter=goimports" },
 		}),
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.shfmt,
