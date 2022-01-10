@@ -568,14 +568,9 @@ require("null-ls").setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.taplo,
 	},
-	-- you can reuse a shared lspconfig on_attach callback here
-	on_attach = function(client)
-		vim.g.nullLsFormat = 1
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd(
-				"autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif"
-			)
-			vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
-		end
-	end,
 })
+
+vim.cmd(
+	"autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif"
+)
+vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
