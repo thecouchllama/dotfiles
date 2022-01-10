@@ -570,6 +570,7 @@ require("null-ls").setup({
 	},
 })
 
+vim.g.nullLsFormat = 1
 vim.cmd(
 	"autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif"
 )
