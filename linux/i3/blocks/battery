@@ -4,7 +4,7 @@ BLUE="<span foreground='#ffffff' background='#275D84'>"
 SPACER="<span font='6'> </span>"
 COLOREND="</span>"
 
-UPOWER="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)"
+UPOWER="$(upower -i /org/freedesktop/UPower/devices/battery_BAT1)"
 
 state="$(echo "$UPOWER" | grep state | awk '{print $2}')"
 
