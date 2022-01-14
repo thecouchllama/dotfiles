@@ -56,8 +56,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Application shortcuts
-bindsym $mod+Return exec alacritty -e tmux new -At default
-bindsym $hyper+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $hyper+l exec i3lock-fancy
 bindsym $hyper+b exec chromium
 bindsym $hyper+a exec pavucontrol
