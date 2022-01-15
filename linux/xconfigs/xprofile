@@ -19,7 +19,6 @@ clipster -d &
 udiskie &
 unclutter &
 dunst &
-dropbox &
 blueman-applet &
 
 # Start Screensaver
