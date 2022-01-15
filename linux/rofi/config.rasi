@@ -1,5 +1,5 @@
 configuration {
-	dpi: 144;
+	dpi: 168;
 	font: "DejaVuSansMono Nerd Font Mono 12";
 }
 @theme "~/.config/rofi/themes/cobalt2.rasi"
