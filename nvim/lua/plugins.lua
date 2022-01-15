@@ -117,13 +117,6 @@ require("packer").startup(function()
 
 	-- Utility
 	use({
-		"mrjones2014/dash.nvim",
-		requires = { "nvim-telescope/telescope.nvim" },
-		run = "make install",
-		disable = not vim.fn.has("macunix"),
-	})
-
-	use({
 		"blackCauldron7/surround.nvim",
 		config = function()
 			require("surround").setup({ mappings_style = "surround" })
