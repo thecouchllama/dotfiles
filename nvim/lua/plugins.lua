@@ -87,9 +87,6 @@ require("packer").startup(function()
 	-- tests
 	use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
 
-	-- vim tmux navigator
-	use("numToStr/Navigator.nvim")
-
 	-- fuzzy search
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -457,10 +454,6 @@ cmp.setup({
 		{ name = "buffer" },
 	},
 })
-
-if vim.env.TMUX then
-	require("Navigator").setup()
-end
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
