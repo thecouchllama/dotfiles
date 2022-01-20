@@ -23,4 +23,5 @@ alias catl='bat --pager=never'
 alias catp='bat'
 
 # scp aliases
+alias sshnh='ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
