@@ -542,7 +542,6 @@ require("null-ls").setup({
 		null_ls.builtins.diagnostics.jsonlint,
 		null_ls.builtins.diagnostics.markdownlint,
 		null_ls.builtins.diagnostics.shellcheck,
-		null_ls.builtins.diagnostics.vale,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.codespell,
 		null_ls.builtins.formatting.fixjson,
