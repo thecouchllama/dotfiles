@@ -123,6 +123,7 @@ require("packer").startup(function()
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
 	use("tpope/vim-unimpaired")
+	use("windwp/nvim-autopairs")
 end)
 
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
@@ -345,7 +346,9 @@ require("diffview").setup({
 	},
 })
 
-require("luasnip/loaders/from_vscode").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets,~/.local/share/nvim/site/pack/packer/start/friendly-snippets"})
+require("luasnip/loaders/from_vscode").lazy_load({
+	paths = vim.fn.stdpath("config") .. "/snippets,~/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+})
 local luasnip = require("luasnip")
 
 local t = function(str)
@@ -445,6 +448,9 @@ cmp.setup({
 			-- add this line when using cmp-cmdline:
 			-- "c",
 		}),
+		["<CR>"] = cmp.mapping(function(fallback)
+			cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })
+		end, {}),
 	},
 	sources = {
 		{ name = "luasnip" },
@@ -560,3 +566,6 @@ vim.cmd(
 	"autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif"
 )
 vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
+
+-- nvim-autopairs
+require("nvim-autopairs").setup({})
