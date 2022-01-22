@@ -133,15 +133,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Workspace Names
 set $ws1 "1Term"
-set $ws2 "2Web"
-set $ws3 "3Comms"
-set $ws4 "4Notes"
-set $ws5 "5Code"
+set $ws2 "2Notes"
+set $ws3 "3Web"
+set $ws4 "4Comms"
+set $ws5 "5Firefox"
 set $ws6 "6RevEng"
 set $ws7 "7Media"
 set $ws8 "8Virt"
 set $ws9 "9Games"
-set $ws10 "10Firefox"
+set $ws10 "10Other"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -192,28 +192,29 @@ mode "resize" {
 }
 
 # Assign clients to specific workspaces
-assign [class="Chromium"] $ws2
-assign [class="google-chrome"] $ws2
-assign [class="qutebrowser"] $ws2
+assign [class="nixnote2"] $ws2
+assign [class="Zathura"] $ws2
+assign [class="Zeal"] $ws2
+assign [class="obsidian"] $ws2
 
-assign [class="HipChat"] $ws3
-assign [class="Pidgin"] $ws3
-assign [instance="social" class="Termite"] $ws3
-assign [Class="Slack"] $ws3
-assign [Class="discord"] $ws3
+assign [class="Chromium"] $ws3
+assign [class="google-chrome"] $ws3
+assign [class="qutebrowser"] $ws3
 
-assign [class="nixnote2"] $ws4
-assign [class="Zathura"] $ws4
-assign [class="Zeal"] $ws4
-assign [class="obsidian"] $ws4
+assign [class="HipChat"] $ws4
+assign [class="Pidgin"] $ws4
+assign [instance="social" class="Termite"] $ws4
+assign [Class="Slack"] $ws4
+assign [Class="discord"] $ws4
 
-assign [class="Code"] $ws5
+assign [class="[fF]irefox"] $ws4
+assign [class="Navigator"] $ws4
 
-assign [class="010 Editor"] $ws6
-assign [class="Hopper"] $ws6
-assign [class="IDA"] $ws6
-assign [class="Binary Ninja"] $ws6
-assign [class="install4j-burp-StartBurp"] $ws6
+assign [class="010 Editor"] $ws5
+assign [class="Hopper"] $ws5
+assign [class="IDA"] $ws5
+assign [class="Binary Ninja"] $ws5
+assign [class="install4j-burp-StartBurp"] $ws5
 
 assign [class="Geeqie"] $ws7
 assign [class="Gimp"] $ws7
@@ -230,8 +231,6 @@ assign [class="Wine"] $ws8
 
 assign [class="Steam"] $ws9
 
-assign [class="[fF]irefox"] $ws10
-assign [class="Navigator"] $ws10
 
 # i3bar
 bar {
