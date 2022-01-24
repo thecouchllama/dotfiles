@@ -44,9 +44,6 @@ require("packer").startup(function()
 	use("arkav/lualine-lsp-progress")
 	use("SmiteshP/nvim-gps")
 
-	-- formatting
-	use("ntpeters/vim-better-whitespace")
-
 	-- movement
 	use({
 		"phaazon/hop.nvim",
@@ -464,10 +461,6 @@ cmp.setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
 
--- vim-better-whitespace
-g.strip_whitespace_on_save = 1
-g.strip_whitespace_confirm = 0
-
 -- lsp
 local lsp_installer = require("nvim-lsp-installer")
 
@@ -558,6 +551,7 @@ require("null-ls").setup({
 		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.taplo,
+		null_ls.builtins.formatting.trim_whitespace,
 	},
 })
 
