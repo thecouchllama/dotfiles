@@ -556,9 +556,7 @@ require("null-ls").setup({
 })
 
 vim.g.nullLsFormat = 1
-vim.cmd(
-	"autocmd BufWritePre <buffer> if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif"
-)
+vim.cmd("autocmd BufWritePre * if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif")
 vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
 
 -- nvim-autopairs
