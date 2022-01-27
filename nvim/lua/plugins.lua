@@ -63,13 +63,6 @@ require("packer").startup(function()
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
 	})
 	-- languages
 	use("ray-x/go.nvim")
@@ -110,17 +103,11 @@ require("packer").startup(function()
 	use("rafamadriz/friendly-snippets")
 
 	-- Utility
-	use({
-		"blackCauldron7/surround.nvim",
-		config = function()
-			require("surround").setup({ mappings_style = "surround" })
-		end,
-	})
+	use("blackCauldron7/surround.nvim")
 	use("sindrets/diffview.nvim")
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
 	use("tpope/vim-unimpaired")
-	use("windwp/nvim-autopairs")
 end)
 
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
@@ -445,9 +432,6 @@ cmp.setup({
 			-- add this line when using cmp-cmdline:
 			-- "c",
 		}),
-		["<CR>"] = cmp.mapping(function(fallback)
-			cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })
-		end, {}),
 	},
 	sources = {
 		{ name = "luasnip" },
@@ -559,5 +543,8 @@ vim.g.nullLsFormat = 1
 vim.cmd("autocmd BufWritePre * if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.buf.formatting_seq_sync()' | endif")
 vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
 
--- nvim-autopairs
-require("nvim-autopairs").setup({})
+-- surround
+require("surround").setup({ mappings_style = "sandwich" })
+
+-- trouble
+require("trouble").setup({})
