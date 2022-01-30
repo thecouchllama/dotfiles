@@ -65,7 +65,8 @@ require("packer").startup(function()
 		requires = "kyazdani42/nvim-web-devicons",
 	})
 	-- languages
-	use("ray-x/go.nvim")
+	use("buoto/gotests-vim")
+	use("fatih/vim-go")
 	use("towolf/vim-helm")
 
 	-- dap
