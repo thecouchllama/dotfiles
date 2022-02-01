@@ -30,7 +30,7 @@ zinit lucid light-mode for \
   hlissner/zsh-autopair
 
 # Load personal zsh scripts
-zinit ice pick"prompt.zsh" multisrc"zsh/*.zsh"
+zinit ice pick"prompt.zsh" multisrc"zsh/*.zsh zsh/completions/_*"
 zinit light ${GITHUB_USER}/dotfiles
 
 # Setup powerlevel 10k prompt
@@ -38,5 +38,6 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 source ~/.zshrc_local
