@@ -58,7 +58,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # Application shortcuts
 bindsym $mod+Return exec kitty
 bindsym $hyper+l exec i3lock-fancy
-bindsym $hyper+b exec chromium
+bindsym $hyper+b exec qutebrowser
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+F11 exec systemctl suspend
 bindsym $hyper+F12 exec systemctl poweroff
