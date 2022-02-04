@@ -2,6 +2,7 @@
 
 if [[ -f "/etc/arch-release" ]]; then
 
+  export BROWSER="qutebrowser"
   export GOPATH="${HOME}/go"
   export PATH="$PATH:/var/lib/snapd/snap/bin:${HOME}/.local/share/gem/ruby/3.0.0/bin:${GOPATH}/bin"
   export PATH="$PATH:${HOME}/.yarn/bin"
