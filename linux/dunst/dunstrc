@@ -33,7 +33,7 @@
     # Possible values are "left", "center" and "right".
     alignment = right
 
-    # The frequency with wich text that is longer than the notification
+    # The frequency with which text that is longer than the notification
     # window allows bounces back and forth.
     # This option conflicts with "word_wrap".
     # Set to 0 to disable.
@@ -139,7 +139,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = chromium
+    browser = qutebrowser
     # Align icons left/right/off
     icon_position = off
     # Paths to default icons.
