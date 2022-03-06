@@ -106,4 +106,10 @@ if [ "$TMUX" ]; then
     # rename title back
     tmux rename-window zsh
   }
+
+  # Fix SSH-Agent forwarding and tmux
+  if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ] && ssh-add -l | grep -q RSA; then
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+    SSH_AUTH_SOCK="${HOME}/.ssh/ssh_auth_sock"
+  fi
 fi
