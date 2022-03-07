@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 output="$(doing last | rofi -dmenu -p 'doing')"
 

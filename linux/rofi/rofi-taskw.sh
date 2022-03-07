@@ -1,6 +1,7 @@
 #!/bin/bash
+set -euo pipefail
 
-output="$(task projects | egrep -v '([pP]roject|projects|---)' | \
-awk '{print $1}' | sed '/^$/d' | rofi -dmenu -p 'TaskWarrior')"
+output="$(task projects | egrep -v '([pP]roject|projects|---)' |
+	awk '{print $1}' | sed '/^$/d' | rofi -dmenu -p 'TaskWarrior')"
 
 task add project:$output
