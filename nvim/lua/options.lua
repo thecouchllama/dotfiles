@@ -52,5 +52,5 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
 
 -- Setup color
-cmd("colorscheme cobalt2")
 opt.colorcolumn = { 80, 120 }
+vim.cmd("highlight ColorColumn guifg=NONE guibg=#204563 gui=NONE")

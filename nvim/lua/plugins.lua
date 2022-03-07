@@ -9,6 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function()
+	-- color theme
+	use({ "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" })
+
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -113,6 +116,9 @@ require("packer").startup(function()
 end)
 
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+
+-- cobalt 2
+require("colorbuddy").colorscheme("cobalt2")
 
 -- gitlinker
 require("gitlinker").setup({
