@@ -112,6 +112,9 @@ bindsym $mod+apostrophe split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# set default layout
+workspace_layout tabbed
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -196,6 +199,8 @@ mode "resize" {
 }
 
 # Assign clients to specific workspaces
+assign [class="code-oss"] $ws1
+
 assign [class="nixnote2"] $ws2
 assign [class="Zathura"] $ws2
 assign [class="Zeal"] $ws2
