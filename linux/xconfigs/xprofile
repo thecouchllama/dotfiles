@@ -40,3 +40,7 @@ export SSH_AUTH_SOCK
 
 # Start policy kit
 /usr/lib/polkit-1/polkitd --no-debug
+
+if [ -f "$HOME/.xstart" ]; then
+  $HOME/.xstart
+fi
