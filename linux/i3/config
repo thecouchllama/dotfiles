@@ -200,6 +200,7 @@ mode "resize" {
 
 # Assign clients to specific workspaces
 assign [class="code-oss"] $ws1
+assign [class="Code"] $ws1
 
 assign [class="nixnote2"] $ws2
 assign [class="Zathura"] $ws2
