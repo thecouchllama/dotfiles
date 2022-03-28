@@ -57,8 +57,8 @@ function gpf() {
     if [ -z $1 ]
         then echo "Need the name of the branch"
     else
-        if [ "$1" == "master" ]
-            then echo "Cant force push to master"
+        if [ "$1" == "main" ]
+            then echo "Can't force push to main"
         else
             git push --force-with-lease origin $1
         fi
