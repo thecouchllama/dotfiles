@@ -19,6 +19,7 @@ alias rgs="batgrep -s"
 # Other Aliases
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias svi="sudo -e"
+alias sih="sudo -i -H"
 alias sz="source ~/.zshrc"
 
 # bat aliases
