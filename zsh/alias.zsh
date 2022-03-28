@@ -51,3 +51,9 @@ alias xd="xdg-mime default"
 
 # exercism
 alias es="exercism submit"
+
+
+# dot aliases
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
