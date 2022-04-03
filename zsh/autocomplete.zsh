@@ -48,5 +48,5 @@ if [ $commands[kubectl] ]; then
 fi
 
 if [ $commands[flux] ]; then
-  source. <(flux completion zsh)
+  source <(flux completion zsh)
 fi
