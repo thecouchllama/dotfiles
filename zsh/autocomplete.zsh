@@ -46,3 +46,7 @@ zstyle -e :urlglobber url-other-schema \
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
+
+if [ $commands[flux] ]; then
+  source. <(flux completion zsh)
+fi
