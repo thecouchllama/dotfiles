@@ -107,9 +107,10 @@ require("packer").startup(function()
 	use("rafamadriz/friendly-snippets")
 
 	-- Utility
-	use("sindrets/diffview.nvim")
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
+	use("rhysd/conflict-marker.vim")
+	use("sindrets/diffview.nvim")
 	use("tpope/vim-unimpaired")
 	use("windwp/nvim-autopairs")
 end)
