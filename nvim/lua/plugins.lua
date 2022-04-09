@@ -533,7 +533,9 @@ require("null-ls").setup({
 		null_ls.builtins.diagnostics.codespell,
 		null_ls.builtins.diagnostics.golangci_lint,
 		null_ls.builtins.diagnostics.jsonlint,
-		null_ls.builtins.diagnostics.markdownlint,
+		null_ls.builtins.diagnostics.markdownlint.with({
+			args = { "-c", "~/.markdownlint.yaml", "--stdin" },
+		}),
 		null_ls.builtins.diagnostics.shellcheck,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.codespell,
