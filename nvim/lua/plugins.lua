@@ -107,7 +107,6 @@ require("packer").startup(function()
 	use("rafamadriz/friendly-snippets")
 
 	-- Utility
-	use("blackCauldron7/surround.nvim")
 	use("sindrets/diffview.nvim")
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
@@ -556,9 +555,6 @@ vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
 
 -- nvim-autopairs
 require("nvim-autopairs").setup({})
-
--- surround
-require("surround").setup({ mappings_style = "sandwich" })
 
 -- trouble
 require("trouble").setup({})
