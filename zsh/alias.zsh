@@ -4,7 +4,6 @@
 alias cp="cp -i --reflink=auto"
 alias free="free -h"
 alias grep="grep --color -i"
-alias ls="ls --color=always --group-directories-first"
 alias ping='prettyping --nolegend'
 alias vi=nvim
 
@@ -31,28 +30,6 @@ alias catp='bat'
 alias copy_terminfo="kitty +kitten ssh "$1" echo COPY terminfo"
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 alias sshnh='ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
-
-# Arch PKG Management
-alias pac="sudo pacman -S"
-alias pacq="pacman -Q"
-alias pacr="sudo pacman -Rs"
-alias pacs="pacman -Ss"
-alias pacsy="sudo pacman -Sy"
-alias pacsyu="sudo pacman -Syu"
-alias pacu="sudo pacman -U"
-alias ya="yay -S"
-alias yas="yay -Ss"
-alias yau="yay -Su"
-
-# xdg aliases
-alias open="xdg-open"
-alias xqf="xdg-mime query filetype"
-alias xqd="xdg-mime query default"
-alias xd="xdg-mime default"
-
-# exercism
-alias es="exercism submit"
-
 
 # dot aliases
 alias -g ...="../.."
