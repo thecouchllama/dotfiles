@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 # Override Commands
-alias cp="cp -i --reflink=auto"
 alias free="free -h"
 alias grep="grep --color -i"
 alias ping='prettyping --nolegend'
