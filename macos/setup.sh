@@ -7,8 +7,6 @@ if [[ -f /usr/local/bin/brew ]]; then
 	eval "$(/usr/local/bin/brew shellenv)"
 elif [[ -f /opt/homebrew/bin/brew ]]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 else
 	echo "Missing homebrew."
 	exit 1
@@ -17,7 +15,7 @@ fi
 #brew install mosh --HEAD
 brew bundle
 
-confdir="${PWD/macos}"
+confdir="${PWD/macos/}"
 
 # Setup nvim directory
 mkdir -p ~/.config/nvim/lua 2>/dev/null
@@ -47,14 +45,14 @@ ln -s "$confdir"zshrc ~/.zshrc
 touch ~/.zshrc_local
 
 mkdir -p ~/.config/kitty
-ln -s "$confdir"misc/kitty.conf ~/.config/kitty.conf
+ln -s "$confdir"macos/kitty.conf ~/.config/kitty/kitty.conf
 
 ln -s "$confdir"misc/digrc ~/.digrc
 
 cp "$confdir"misc/gitconfig ~/.gitconfig
 
 git clone https://github.com/wesbos/cobalt2.git \
-  ~/.config/bat/themes/cobalt2
+	~/.config/bat/themes/cobalt2
 
 ln -s "$confdir"misc/bat ~/.config/bat/config
 
