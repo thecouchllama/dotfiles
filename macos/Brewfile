@@ -80,6 +80,7 @@ cask "raindropio"
 cask "secretive"
 cask "textexpander"
 mas "1Password 7", id: 1333542190
+mas "AirMail", id: 918858936
 mas "CARROT Weather", id: 993487541
 mas "GoodLinks", id: 1474335294
 # mas "Keep It", id: 1272768911
