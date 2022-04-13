@@ -63,3 +63,5 @@ ln -s "$confdir"macos/karabiner.json ~/.config/karabiner/karabiner.json
 
 mkdir -p ~/.hammerspoon
 ln -s "$confdir"macos/hammerspoon.lua ~/.hammerspoon/init.lua
+
+open /opt/homebrew/Caskroom/backblaze/*/Backblaze\ Installer.app
