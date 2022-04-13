@@ -57,3 +57,9 @@ git clone https://github.com/wesbos/cobalt2.git \
 ln -s "$confdir"misc/bat ~/.config/bat/config
 
 bat cache --build
+
+mkdir -p ~/.config/karabiner
+ln -s "$confdir"macos/karabiner.json ~/.config/karabiner/karabiner.json
+
+mkdir -p ~/.hammerspoon
+ln -s "$confdir"macos/hammerspoon.lua ~/.hammerspoon/init.lua
