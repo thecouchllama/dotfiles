@@ -1,5 +1,5 @@
 #!/bin/zsh
-if /usr/bin/uname -a | /usr/bin/grep -q 'Darwin'; then
+if [[ -d /Users ]]; then
   if [[ -f /opt/homebrew/bin/brew ]]; then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
     eval "$(/opt/homebrew/bin/brew shellenv)"
