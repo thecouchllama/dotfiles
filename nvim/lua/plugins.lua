@@ -113,6 +113,7 @@ require("packer").startup(function()
 	use("sindrets/diffview.nvim")
 	use("tpope/vim-unimpaired")
 	use("windwp/nvim-autopairs")
+	use("ojroques/vim-oscyank")
 end)
 
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })

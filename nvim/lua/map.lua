@@ -56,7 +56,10 @@ map("n", "ZZ", "<cmd>wqa!<cr>")
 map("n", "<leader>F", "<cmd>lua vim.diagnostic.open_float()<cr>")
 map("n", "<C-s>", "<cmd>w<cr>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
-map("v", "<leader>y", '"+y')
+
+-- yank
+map("v", "<leader>y", ":OSCYank<cr>")
+map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
 
 -- fugitive
 map("n", "<leader>gb", "<cmd>Git blame<cr>")
