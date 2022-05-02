@@ -37,4 +37,4 @@ map("n", "<leader>ru", "<cmd>GoRun<cr>")
 map("n", "<leader>tg", "<cmd>GoTest<cr>")
 
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+-- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
