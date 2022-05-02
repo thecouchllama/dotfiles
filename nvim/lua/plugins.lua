@@ -69,13 +69,14 @@ require("packer").startup(function()
 	})
 	-- languages
 	use("buoto/gotests-vim")
-	use("fatih/vim-go")
+	use("ray-x/go.nvim")
 	use("towolf/vim-helm")
 
 	-- dap
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
+	use("ray-x/guihua.lua")
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- tests
@@ -208,12 +209,94 @@ require("nvim-treesitter.configs").setup({
 		config = { css = "// %s" },
 	},
 	autotag = { enable = false },
+	incremental_selection = {
+		enable = enable,
+		keymaps = {
+			-- mappings for incremental selection (visual mappings)
+			init_selection = "gnn", -- maps in normal mode to init the node/scope selection
+			node_incremental = "grn", -- increment to the upper named parent
+			scope_incremental = "grc", -- increment to the upper scope (as defined in locals.scm)
+			node_decremental = "grm", -- decrement to the previous node
+		},
+	},
 	textobjects = {
-		swap = {
-			enable = false,
+		-- syntax-aware textobjects
+		enable = enable,
+		lsp_interop = {
+			enable = enable,
+			peek_definition_code = {
+				["DF"] = "@function.outer",
+				["DF"] = "@class.outer",
+			},
+		},
+		keymaps = {
+			["iL"] = {
+				-- you can define your own textobjects directly here
+				go = "(function_definition) @function",
+			},
+			-- or you use the queries from supported languages with textobjects.scm
+			["af"] = "@function.outer",
+			["if"] = "@function.inner",
+			["aC"] = "@class.outer",
+			["iC"] = "@class.inner",
+			["ac"] = "@conditional.outer",
+			["ic"] = "@conditional.inner",
+			["ae"] = "@block.outer",
+			["ie"] = "@block.inner",
+			["al"] = "@loop.outer",
+			["il"] = "@loop.inner",
+			["is"] = "@statement.inner",
+			["as"] = "@statement.outer",
+			["ad"] = "@comment.outer",
+			["am"] = "@call.outer",
+			["im"] = "@call.inner",
+		},
+		move = {
+			enable = enable,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				["]m"] = "@function.outer",
+				["]]"] = "@class.outer",
+			},
+			goto_next_end = {
+				["]M"] = "@function.outer",
+				["]["] = "@class.outer",
+			},
+			goto_previous_start = {
+				["[m"] = "@function.outer",
+				["[["] = "@class.outer",
+			},
+			goto_previous_end = {
+				["[M"] = "@function.outer",
+				["[]"] = "@class.outer",
+			},
 		},
 		select = {
-			enable = false,
+			enable = enable,
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				-- Or you can define your own textobjects like this
+				["iF"] = {
+					python = "(function_definition) @function",
+					cpp = "(function_definition) @function",
+					c = "(function_definition) @function",
+					java = "(method_declaration) @function",
+					go = "(method_declaration) @function",
+				},
+			},
+		},
+		swap = {
+			enable = enable,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
+			},
 		},
 	},
 	textsubjects = {
@@ -244,10 +327,6 @@ require("nvim-treesitter.configs").setup({
 		max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
 	},
 })
-
--- vim-go
-vim.g.go_def_mapping_enabled = 0
-vim.g.go_diagnostics_enabled = 0
 
 -- diffview
 local cb = require("diffview.config").diffview_callback
@@ -534,24 +613,22 @@ require("null-ls").setup({
 	sources = {
 		null_ls.builtins.code_actions.shellcheck,
 		null_ls.builtins.diagnostics.ansiblelint,
-		null_ls.builtins.diagnostics.codespell,
-		null_ls.builtins.diagnostics.golangci_lint,
 		null_ls.builtins.diagnostics.jsonlint,
 		null_ls.builtins.diagnostics.markdownlint.with({
 			args = { "-c", "~/.markdownlint.yaml", "--stdin" },
 		}),
 		null_ls.builtins.diagnostics.shellcheck,
 		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.codespell,
 		null_ls.builtins.formatting.fixjson,
-		null_ls.builtins.formatting.golines.with({
-			args = { "--base-formatter=goimports" },
+		null_ls.builtins.formatting.prettier.with({
+			disabled_filetypes = { "go" },
 		}),
-		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.taplo,
-		null_ls.builtins.formatting.trim_whitespace,
+		null_ls.builtins.formatting.trim_whitespace.with({
+			disabled_filetypes = { "go" },
+		}),
 	},
 })
 
