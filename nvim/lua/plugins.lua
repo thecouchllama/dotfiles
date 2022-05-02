@@ -539,11 +539,6 @@ cmp.setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
 
-require("go").setup({
-	lsp_cfg = true, -- false: use your own lspconfig
-	lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
-})
-
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Include the servers you want to have installed by default below
@@ -604,7 +599,13 @@ lsp_installer.on_server_ready(function(server)
 	}
 	local server_opts = {
 		["gopls"] = function()
-			default_opts = require("go.lsp").config() -- config() return the go.nvim gopls setup
+			default_opts = {
+				gopls = {
+					settings = {
+						gopls = { gofumpt = true },
+					},
+				},
+			}
 		end,
 	}
 
