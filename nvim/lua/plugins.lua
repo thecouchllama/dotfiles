@@ -115,6 +115,7 @@ require("packer").startup(function()
 	use("tpope/vim-unimpaired")
 	use("windwp/nvim-autopairs")
 	use("ojroques/vim-oscyank")
+	use("sunaku/vim-dasht")
 end)
 
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
