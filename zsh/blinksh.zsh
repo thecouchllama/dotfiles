@@ -6,5 +6,5 @@ if [[ "$BLINKSH" ]]; then
     [ -z "$SSH_AUTH_SOCK" ] && eval "$(/usr/bin/ssh-agent -s -t 1h)"
     /usr/bin/ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
   fi
-  SSH_AUTH_SOCK="${HOME}/.ssh/ssh_auth_sock"
+  export SSH_AUTH_SOCK="${HOME}/.ssh/ssh_auth_sock"
 fi
