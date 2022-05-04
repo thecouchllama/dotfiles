@@ -116,8 +116,10 @@ require("packer").startup(function()
 	use("windwp/nvim-autopairs")
 	use("ojroques/vim-oscyank")
 	use("sunaku/vim-dasht")
+	use("j-hui/fidget.nvim")
 end)
 
+require("fidget").setup({})
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
 -- cobalt 2
