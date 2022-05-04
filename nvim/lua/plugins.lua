@@ -44,7 +44,6 @@ require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	use("arkav/lualine-lsp-progress")
 	use("SmiteshP/nvim-gps")
 
 	-- movement
@@ -119,7 +118,11 @@ require("packer").startup(function()
 	use("j-hui/fidget.nvim")
 end)
 
-require("fidget").setup({})
+require("fidget").setup({
+	text = {
+		spinner = "dots",
+	},
+})
 require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
 -- cobalt 2
