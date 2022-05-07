@@ -32,9 +32,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export PAGER="less -R"
-export PATH="$PATH:${HOME}/.yarn/bin"
-export PATH="$PATH:/var/lib/snapd/snap/bin:${HOME}/.local/share/gem/ruby/3.0.0/bin:${GOPATH}/bin"
-export PATH="${HOME}/bin:${HOME}/.local/bin:${HOME}/.krew/bin:${PATH}"
 export SAVEHIST=25000
 export ZLE_RPROMPT_INDENT=0
 setopt APPEND_HISTORY
@@ -47,4 +44,18 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
+path+="${HOME}/.yarn/bin"
+path+="/var/lib/snapd/snap/bin"
+path+="${GOPATH}/bin"
+path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
+
+for i in ${HOME}/.local/share/gem/ruby/*; do
+  path+="$i/bin"
+done
+
+for i in ${HOME}/.gem/ruby/*; do
+  path+="$i/bin"
+done
+
 typeset -U PATH
+export PATH
