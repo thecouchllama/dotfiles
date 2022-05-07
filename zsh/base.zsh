@@ -50,11 +50,15 @@ path+="${GOPATH}/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
 
 for i in ${HOME}/.local/share/gem/ruby/*; do
-  path+="$i/bin"
+  if [ -d "$i" ]; then
+    path+="$i/bin"
+  fi
 done
 
 for i in ${HOME}/.gem/ruby/*; do
-  path+="$i/bin"
+  if [ -d "$i" ]; then
+    path+="$i/bin"
+  fi
 done
 
 typeset -U PATH
