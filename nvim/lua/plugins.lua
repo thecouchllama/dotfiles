@@ -512,21 +512,53 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-		["<Down>"] = cmp.mapping(function(fallback)
-			cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+		["<C-n>"] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_jumpable() then
+				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
 		end, {
 			"i",
 			"s",
-			-- add this line when using cmp-cmdline:
-			-- "c",
+		}),
+		["<C-p>"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
+		["<Down>"] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_jumpable() then
+				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
 		}),
 		["<Up>"] = cmp.mapping(function(fallback)
-			cmp_ultisnips_mappings.jump_backwards(fallback)
+			if luasnip.jumpable(-1) then
+				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
 		end, {
 			"i",
 			"s",
-			-- add this line when using cmp-cmdline:
-			-- "c",
 		}),
 		["<CR>"] = cmp.mapping(function(fallback)
 			cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })

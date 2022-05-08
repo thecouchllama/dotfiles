@@ -10,6 +10,7 @@ end
 -- telescope
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>fc", "<cmd>Telescope quickfix<cr>")
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
@@ -19,7 +20,6 @@ map(
 	"<leader>fr",
 	'<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>'
 )
-map("n", "<leader>fu", "<cmd>Telescope ultisnips<cr>")
 map("n", "<f1>", "<cmd>Telescope help_tags<cr>")
 
 -- hop
