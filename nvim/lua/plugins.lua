@@ -444,6 +444,7 @@ end
 
 local cmp = require("cmp")
 cmp.setup({
+	preselect = cmp.PreselectMode.None,
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
@@ -488,7 +489,7 @@ cmp.setup({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.close(),
-		["<Tab>"] = cmp.mapping(function(fallback)
+		["<C-n>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
 				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
 			elseif cmp and cmp.visible() then
@@ -500,7 +501,7 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
+		["<C-p>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(-1) then
 				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
 			elseif cmp and cmp.visible() then
@@ -513,24 +514,29 @@ cmp.setup({
 			"s",
 		}),
 		["<Down>"] = cmp.mapping(function(fallback)
-			cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+			if luasnip.expand_or_jumpable() then
+				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
 		end, {
 			"i",
 			"s",
-			-- add this line when using cmp-cmdline:
-			-- "c",
 		}),
 		["<Up>"] = cmp.mapping(function(fallback)
-			cmp_ultisnips_mappings.jump_backwards(fallback)
+			if luasnip.jumpable(-1) then
+				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
+			elseif cmp and cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
 		end, {
 			"i",
 			"s",
-			-- add this line when using cmp-cmdline:
-			-- "c",
 		}),
-		["<CR>"] = cmp.mapping(function(fallback)
-			cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })
-		end, {}),
 	},
 	sources = {
 		{ name = "luasnip" },
