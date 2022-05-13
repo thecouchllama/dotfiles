@@ -513,9 +513,7 @@ cmp.setup({
 			"s",
 		}),
 		["<C-n>"] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
-				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
-			elseif cmp and cmp.visible() then
+			if cmp and cmp.visible() then
 				cmp.select_next_item()
 			else
 				fallback()
@@ -525,9 +523,7 @@ cmp.setup({
 			"s",
 		}),
 		["<C-p>"] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(-1) then
-				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
-			elseif cmp and cmp.visible() then
+			if cmp and cmp.visible() then
 				cmp.select_prev_item()
 			else
 				fallback()
@@ -537,9 +533,7 @@ cmp.setup({
 			"s",
 		}),
 		["<Down>"] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
-				vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
-			elseif cmp and cmp.visible() then
+			if cmp and cmp.visible() then
 				cmp.select_next_item()
 			else
 				fallback()
@@ -549,9 +543,7 @@ cmp.setup({
 			"s",
 		}),
 		["<Up>"] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(-1) then
-				vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
-			elseif cmp and cmp.visible() then
+			if cmp and cmp.visible() then
 				cmp.select_prev_item()
 			else
 				fallback()
