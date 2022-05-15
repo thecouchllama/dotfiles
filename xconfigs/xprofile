@@ -32,6 +32,7 @@ xcape -e 'Control_R=Escape;Super_R=Tab'
 # Setup touchpad
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
 
 # Start gnome-keyring
 eval $(gnome-keyring-daemon --start)
