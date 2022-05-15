@@ -570,6 +570,14 @@ require("telescope").load_extension("repo")
 
 local lsp_installer = require("nvim-lsp-installer")
 
+
+require("go").setup({
+	fillstruct = "gopls",
+	lsp_gofumpt = true,
+	dap_debug = true,
+	dap_debug_gui = true,
+})
+
 -- Include the servers you want to have installed by default below
 local servers = {
 	"bashls",
