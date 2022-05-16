@@ -19,7 +19,6 @@ export BROWSER="qutebrowser"
 export EDITOR="nvim"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export GOPATH="${HOME}/go"
 export HISTFILE=~/.zsh_history
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTSIZE=25000
@@ -63,3 +62,16 @@ done
 
 typeset -U PATH
 export PATH
+
+# Setup XDG paths and directories based off these paths
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GOPATH="$XDG_DATA_HOME"/go
+export _Z_DATA="$XDG_DATA_HOME/z"
+export MINIKUBE_HOME="$XDG_DATA_HOME"/minikube
+export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"

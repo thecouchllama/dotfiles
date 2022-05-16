@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Enable smart autocompletion
-autoload -U compinit && compinit
+autoload -U compinit && compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 setopt complete_in_word
 
 # Enable menu selection when hitting tab twice

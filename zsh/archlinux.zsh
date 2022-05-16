@@ -28,4 +28,5 @@ if [[ -f "/etc/arch-release" ]]; then
   alias xqf="xdg-mime query filetype"
   alias xqd="xdg-mime query default"
   alias xd="xdg-mime default"
+  alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 fi
