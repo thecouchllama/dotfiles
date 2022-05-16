@@ -43,7 +43,17 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GOPATH="$XDG_DATA_HOME"/go
+export _Z_DATA="$XDG_DATA_HOME/z"
+export MINIKUBE_HOME="$XDG_DATA_HOME"/minikube
+export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
+
 path+="${HOME}/.yarn/bin"
+path+="${CARGO_HOME}/bin"
 path+="/var/lib/snapd/snap/bin"
 path+="${GOPATH}/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
@@ -68,12 +78,3 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
-
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export GOPATH="$XDG_DATA_HOME"/go
-export _Z_DATA="$XDG_DATA_HOME/z"
-export MINIKUBE_HOME="$XDG_DATA_HOME"/minikube
-export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
