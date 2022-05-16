@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if [[ -f "/usr/bin/task" ]]; then
+if [[ -f "/usr/bin/task" ]] || [[ -f "/usr/local/bin/task" ]]; then
   alias ta="task add"
   alias tn="task next"
   alias tl="task ls"
@@ -12,7 +12,7 @@ if [[ -f "/usr/bin/task" ]]; then
   function td {
     task $1 done
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
@@ -20,14 +20,14 @@ if [[ -f "/usr/bin/task" ]]; then
   function tlater {
     task $1 modify +later
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
   function tdel {
     task $1 delete
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
@@ -35,7 +35,7 @@ if [[ -f "/usr/bin/task" ]]; then
   function tap {
     task add project:$*
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
@@ -43,7 +43,7 @@ if [[ -f "/usr/bin/task" ]]; then
   function tas {
     task add project:singletons $*
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
@@ -55,7 +55,7 @@ if [[ -f "/usr/bin/task" ]]; then
   function tdep {
     task $1 modify depends:"$2"
 
-    if grep -q "^taskd" $HOME/.taskrc; then
+    if grep -q "^taskd" $HOME/.config/task/taskrc; then
       task sync
     fi
   }
