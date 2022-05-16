@@ -7,7 +7,7 @@ export PATH="$HOME/bin:$PATH"
 
 # Setup Monitor
 xrandr --dpi 168 --output eDP-1 --auto
-xrdb -merge "~/.config/X11/xresources"
+xrdb -merge "$HOME/.config/X11/xresources"
 dispwin ~/.local/share/color/icc/laptop.icc
 
 # blank screen after 10 minutes
