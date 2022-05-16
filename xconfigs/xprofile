@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+EXPORT ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 
 # This needs to be set in order for autocomplete to work on run shortcut
 export PATH="$HOME/bin:$PATH"
