@@ -63,7 +63,6 @@ c.url.searchengines = {
     "r": "http://www.reddit.com/r/{}",
     "wa": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}&go=Go",
 }
-c.url.start_pages = ["https://www.ticktick.com/webapp"]
 
 config.bind("e", "scroll-page 0 -1")
 config.bind("sp", "set-cmd-text -s :spawn --userscript pin add")
