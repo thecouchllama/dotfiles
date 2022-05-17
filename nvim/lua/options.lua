@@ -2,6 +2,7 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local opt = vim.opt -- to set options
 local g = vim.g -- a table to access global variables
 
+opt.rtp:append(vim.fn.stdpath("config") .. "/snippets") -- add snippet directory to rtp
 opt.completeopt = { "menuone", "noinsert", "noselect" } -- Completion options (for deoplete)
 opt.cmdheight = 2 -- Set the command height at the bottom to 2 lines
 opt.expandtab = true -- Use spaces instead of tabs
