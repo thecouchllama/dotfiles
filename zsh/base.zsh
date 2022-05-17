@@ -58,10 +58,10 @@ export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
 
-path+="${HOME}/.yarn/bin"
 path+="${CARGO_HOME}/bin"
-path+="/var/lib/snapd/snap/bin"
 path+="${GOPATH}/bin"
+path+="${HOME}/.yarn/bin"
+path+="${XDG_DATA_HOME}/npm/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
 
 for i in ${HOME}/.local/share/gem/ruby/*; do
