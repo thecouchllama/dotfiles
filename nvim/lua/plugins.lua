@@ -116,6 +116,7 @@ require("packer").startup(function()
 	use("ojroques/vim-oscyank")
 	use("sunaku/vim-dasht")
 	use("j-hui/fidget.nvim")
+	use("tpope/vim-surround")
 end)
 
 require("fidget").setup({
@@ -569,7 +570,6 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
 
 local lsp_installer = require("nvim-lsp-installer")
-
 
 require("go").setup({
 	fillstruct = "gopls",
