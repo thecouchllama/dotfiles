@@ -1,0 +1,52 @@
+#!/bin/zsh
+
+EXPORT ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+
+# This needs to be set in order for autocomplete to work on run shortcut
+export PATH="$HOME/bin:$PATH"
+
+# Setup Monitor
+xrandr --dpi 168 --output eDP-1 --auto
+xrdb -merge "$HOME/.config/X11/xresources"
+dispwin ~/.local/share/color/icc/laptop.icc
+
+# blank screen after 10 minutes
+xset s 600 600
+
+# Setup Wallpaper
+nitrogen --restore &
+
+# Start Programs
+udiskie &
+unclutter &
+dunst &
+blueman-applet &
+dropbox &
+
+# Start Screensaver
+xautolock -time 7 -locker "i3lock -i ~/pictures/wallpaper/framework/fw_cobalt2.png" -corners --00  -cornerdelay 4 -cornerredelay 4 -detectsleep &
+#xss-lock -n dim-screen.sh -- i3lock -n -i ~/pictures/wallpaper/framework/fw_cobalt2.png
+
+# enable ctrl-alt-backspace
+setxkbmap -option terminate:ctrl_alt_bksp
+# Setup keyboard
+xmodmap ~/.Xmodmap
+xcape -e 'Control_R=Escape;Super_R=Tab'
+
+# Setup touchpad
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+
+# Start gnome-keyring
+eval $(ssh-agent)
+export SSH_AUTH_SOCK
+
+# Start policy kit
+/usr/lib/polkit-1/polkitd --no-debug
+
+if [ -f "$HOME/.xstart" ]; then
+  $HOME/.xstart
+fi
+
+exec i3
