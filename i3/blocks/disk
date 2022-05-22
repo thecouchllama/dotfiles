@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+#diskpercentage="$(free -m | grep Mem| awk '{printf "%.1f%%", $3/$2*100}')"
+INTERFACE="${BLOCK_INSTANCE:-/}"
+diskfree="$(df -h "$INTERFACE" | awk 'END{print $4}')"
+
+if [ "$(df "$INTERFACE" | awk 'END{print $4}')" -lt "100000000" ]; then
+	echo "<span foreground='#ffffff' background='#808080'>  </span><span foreground='#ffffff' background='#275D84'> $diskfree </span>"
+fi
