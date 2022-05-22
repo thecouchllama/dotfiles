@@ -17,6 +17,7 @@ xset s 600 600
 nitrogen --restore &
 
 # Start Programs
+picom &
 udiskie &
 unclutter &
 dunst &
