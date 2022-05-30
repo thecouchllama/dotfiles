@@ -15,6 +15,18 @@ linters-settings:
     locale: US
   nestif:
     min-complexity: 4
+  revive:
+    ignore-generated-header: true
+    rules:
+      - name: exported
+        severity: warning
+        disabled: false
+        arguments:
+          - "checkPrivateReceivers"
+          - "sayRepetitiveInsteadOfStutters"
+      - name: package-comments
+        severity: warning
+        disabled: false
   tagliatelle:
     case:
       use-field-name: true
@@ -65,9 +77,9 @@ linters:
     - predeclared
     - revive
     - staticcheck
+    - stylecheck
     - tagliatelle
     - wastedassign
-    - wrapcheck
     - wsl
 issues:
   exclude-use-default: false

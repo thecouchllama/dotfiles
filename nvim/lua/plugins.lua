@@ -346,18 +346,18 @@ require("diffview").setup({
 		fold_open = "",
 	},
 	file_panel = {
-    win_config = {
-	  	position = "left", -- One of 'left', 'right', 'top', 'bottom'
-	  	width = 35, -- Only applies when position is 'left' or 'right'
-	  	height = 10, -- Only applies when position is 'top' or 'bottom'
-    },
+		win_config = {
+			position = "left", -- One of 'left', 'right', 'top', 'bottom'
+			width = 35, -- Only applies when position is 'left' or 'right'
+			height = 10, -- Only applies when position is 'top' or 'bottom'
+		},
 	},
 	file_history_panel = {
-    win_config = {
-	  	position = "bottom",
-	  	width = 35,
-	  	height = 16,
-    },
+		win_config = {
+			position = "bottom",
+			width = 35,
+			height = 16,
+		},
 		log_options = {
 			max_count = 256, -- Limit the number of commits
 			follow = false, -- Follow renames (only for single file)
@@ -661,6 +661,16 @@ require("null-ls").setup({
 	sources = {
 		null_ls.builtins.code_actions.shellcheck,
 		null_ls.builtins.diagnostics.ansiblelint,
+		null_ls.builtins.diagnostics.golangci_lint.with({
+			args = {
+				"run",
+				"--fix=true",
+				"--out-format=json",
+				"$DIRNAME",
+				"--path-prefix",
+				"$ROOT",
+			},
+		}),
 		null_ls.builtins.diagnostics.jsonlint,
 		null_ls.builtins.diagnostics.markdownlint.with({
 			args = { "-c", "~/.markdownlint.yaml", "--stdin" },
