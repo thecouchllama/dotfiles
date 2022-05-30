@@ -664,7 +664,7 @@ require("null-ls").setup({
 		null_ls.builtins.diagnostics.golangci_lint.with({
 			args = {
 				"run",
-				"--fix=true",
+				"--fix=false",
 				"--out-format=json",
 				"$DIRNAME",
 				"--path-prefix",
