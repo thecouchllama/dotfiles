@@ -58,8 +58,8 @@ map("n", "<C-s>", "<cmd>w<cr>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
 
 -- yank
-map("v", "<leader>y", '"+p')
-map("n", "<leader>y", '"+p')
+map("v", "<leader>y", ":OSCYank<cr>")
+map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
 
 -- fugitive
 map("n", "<leader>gb", "<cmd>Git blame<cr>")

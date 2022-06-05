@@ -116,6 +116,7 @@ require("packer").startup(function()
 	use("sunaku/vim-dasht")
 	use("j-hui/fidget.nvim")
 	use("tpope/vim-surround")
+	use("ojroques/vim-oscyank")
 end)
 
 require("fidget").setup({
