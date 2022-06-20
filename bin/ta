@@ -26,7 +26,7 @@ if [ "$DIR" == "--start" ]; then
 	session_name=${path_name//./_}
 else
 	# ask the user which directory to start in
-	_session_name=$(cd $DIR && fd -d 2 --min-depth 2 -E '*dotfiles/*' | fzf --reverse --header="Select project from $(basename $DIR) >")
+	_session_name=$(cd $DIR && fd -d 33 -H -t d -- '^.git$' | sed 's|/.git/||' | fzf --reverse --header="Select project from $(basename $DIR) >")
 	session_name=${_session_name#*/}
 	path_name=$DIR/$_session_name
 fi
@@ -55,12 +55,15 @@ create_detached_session() {
 			TMUX=''
 			tmux new-session -Ad -s "$session_name" -c "$path_name"
 			tmux send-keys -t "$session_name" "nvim '+Telescope find_files'" Enter
-      if cd "$path_name" || exit; git status >/dev/null 2>&1; then
-        tmux new-window -t "$session_name" -c "$path_name" "lazygit"
-      fi
-      cd - || exit
-      tmux new-window -t "$session_name" -c "$path_name"
-      tmux select-window -t nvim
+			if
+				cd "$path_name" || exit
+				git status >/dev/null 2>&1
+			then
+				tmux new-window -t "$session_name" -c "$path_name" "lazygit"
+			fi
+			cd - || exit
+			tmux new-window -t "$session_name" -c "$path_name"
+			tmux select-window -t nvim
 		)
 	fi
 }
