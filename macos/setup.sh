@@ -55,8 +55,10 @@ git clone https://github.com/wesbos/cobalt2.git \
 	~/.config/bat/themes/cobalt2
 
 ln -s "$confdir"misc/bat ~/.config/bat/config
-
 bat cache --build
+
+ln -s "$confdir"misc/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
 mkdir -p ~/.config/karabiner
 ln -s "$confdir"macos/karabiner.json ~/.config/karabiner/karabiner.json

@@ -1,12 +1,11 @@
 #!/bin/bash
 set -euo pipefail
-echo "[*] Install apt packages" 
+echo "[*] Install apt packages"
 sudo apt install -y build-essential zsh
 chsh -s /usr/bin/zsh
 
 echo "[*] Installing homebrew"
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -40,7 +39,6 @@ nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ln -s "$confdir"zshrc ~/.zshrc
 touch ~/.zshrc_local
 
-
 ln -s "$confdir"misc/digrc ~/.digrc
 
 cp "$confdir"misc/gitconfig ~/.gitconfig
@@ -49,7 +47,7 @@ git clone https://github.com/wesbos/cobalt2.git \
 	~/.config/bat/themes/cobalt2
 
 ln -s "$confdir"misc/bat ~/.config/bat/config
+bat cache --build
 
 ln -s "$confdir"misc/tmux.conf ~/.tmux.conf
-
-bat cache --build
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
