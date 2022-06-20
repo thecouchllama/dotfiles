@@ -85,6 +85,7 @@ require("packer").startup(function()
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-go",
 		},
 	})
 
@@ -717,3 +718,10 @@ require("nvim-autopairs").setup({})
 
 -- trouble
 require("trouble").setup({})
+
+-- neotest
+require("neotest").setup({
+	adapters = {
+		require("neotest-go"),
+	},
+})

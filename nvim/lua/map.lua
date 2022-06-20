@@ -80,16 +80,17 @@ map(
 	'<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>'
 )
 
--- ulttest
-map("n", "<leader>ta", "<cmd>Ultest<cr>")
-map("n", "<leader>tc", "<cmd>UltestClear<cr>")
-map("n", "<leader>tl", "<cmd>UltestLast<cr>")
-map("n", "<leader>tn", "<cmd>UltestNearest<cr>")
-map("n", "<leader>to", "<cmd>UltestOutput<cr>")
-map("n", "<leader>ts", "<cmd>UltestSummary!<cr>")
-map("n", "<leader>tx", "<cmd>UltestStop<cr>")
-map("n", "[t", "<cmd>:call ultest#positions#prev()<CR>")
-map("n", "]t", "<cmd>:call ultest#positions#next()<CR>")
+-- neotest
+map("n", "<leader>ta", '<cmd>lua require("neotest").run.attach()<CR>')
+map("n", "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
+map("n", "<leader>tl", '<cmd>lua require("neotest").run.run_last()<CR>')
+map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>')
+map("n", "<leader>to", '<cmd>lua require("neotest").output.open({ enter = true })<CR>')
+map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
+map("n", "<leader>tx", '<cmd>lua require("neotest").run.stop()<CR>')
+map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
+map("n", "]t", '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>')
 
 -- glow
 map("n", "<leader>m", "<cmd>Glow<cr>")
