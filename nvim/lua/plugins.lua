@@ -125,6 +125,13 @@ require("packer").startup(function()
 	use("j-hui/fidget.nvim")
 	use("tpope/vim-surround")
 	use("ojroques/vim-oscyank")
+	use("https://gitlab.com/yorickpeterse/nvim-pqf.git")
+	use({
+		"akinsho/git-conflict.nvim",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	})
 end)
 
 require("fidget").setup({
@@ -725,3 +732,6 @@ require("neotest").setup({
 		require("neotest-go"),
 	},
 })
+
+-- pqf
+require("pqf").setup()
