@@ -46,6 +46,7 @@ touch ~/.zshrc_local
 
 mkdir -p ~/.config/kitty
 ln -s "$confdir"macos/kitty.conf ~/.config/kitty/kitty.conf
+ln -s "$confdir"misc/kitty_session_tmux.conf ~/.config/kitty/kitty_session_tmux.conf
 
 ln -s "$confdir"misc/digrc ~/.digrc
 
