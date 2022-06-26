@@ -117,6 +117,7 @@ require("packer").startup(function()
 	-- Utility
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
+	use("numToStr/Navigator.nvim")
 	use("rhysd/conflict-marker.vim")
 	use("sindrets/diffview.nvim")
 	use("tpope/vim-unimpaired")
@@ -735,3 +736,8 @@ require("neotest").setup({
 
 -- pqf
 require("pqf").setup()
+
+-- tmux navigator
+if vim.env.TMUX then
+	require("Navigator").setup()
+end
