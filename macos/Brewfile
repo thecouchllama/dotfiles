@@ -16,6 +16,7 @@ brew "dos2unix"
 brew "exercism"
 brew "fd"
 brew "fdupes"
+brew "findutils"
 brew "fluxctl"
 brew "fzf"
 brew "gawk"
@@ -84,11 +85,9 @@ cask "textexpander"
 mas "1Password 7", id: 1333542190
 mas "AirMail", id: 918858936
 mas "CARROT Weather", id: 993487541
-mas "GoodLinks", id: 1474335294
-# mas "Keep It", id: 1272768911
+mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "Reeder", id: 1529448980
-mas "Save to Raindrop.io", id: 1549370672
 mas "Slack", id: 803453959
 mas "TextSniper", id: 1528890965
 mas "Tweetbot", id: 1384080005
