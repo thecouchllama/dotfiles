@@ -55,3 +55,6 @@ opt.foldenable = false
 -- Setup color
 opt.colorcolumn = { 80, 120 }
 vim.cmd("highlight ColorColumn guifg=NONE guibg=#204563 gui=NONE")
+
+-- OSC Yank
+g.oscyank_term = "default"
