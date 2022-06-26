@@ -51,3 +51,6 @@ bat cache --build
 
 ln -s "$confdir"misc/tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+
+mkdir -p ~/.terminfo/74/
+cp "$confdir"terminfo/* ~/.terminfo/74/

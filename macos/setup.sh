@@ -68,3 +68,6 @@ mkdir -p ~/.hammerspoon
 ln -s "$confdir"macos/hammerspoon.lua ~/.hammerspoon/init.lua
 
 open /opt/homebrew/Caskroom/backblaze/*/Backblaze\ Installer.app
+
+mkdir -p ~/.terminfo/74/
+cp "$confdir"terminfo/* ~/.terminfo/74/
