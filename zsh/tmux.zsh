@@ -108,7 +108,7 @@ if [ "$TMUX" ]; then
   }
 
   # Fix SSH-Agent forwarding and tmux
-  if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ] && ssh-add -l | grep -q RSA; then
+  if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ] && /usr/bin/ssh-add -l | /usr/bin/grep -q RSA; then
     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
     SSH_AUTH_SOCK="${HOME}/.ssh/ssh_auth_sock"
   fi
