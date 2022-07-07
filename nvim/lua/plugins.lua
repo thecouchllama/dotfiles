@@ -99,6 +99,7 @@ require("packer").startup(function()
 
 	-- comment support
 	use("b3nj5m1n/kommentary")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Completion
 	use({
@@ -221,6 +222,9 @@ require("nvim-treesitter.configs").setup({
 	ignore_install = {},
 	matchup = {
 		enable = false,
+	},
+	context_commentstring = {
+		enable = true,
 	},
 	highlight = {
 		enable = true,
