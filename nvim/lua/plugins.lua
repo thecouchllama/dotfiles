@@ -230,6 +230,7 @@ require("nvim-treesitter.configs").setup({
 		enable = false,
 		config = { css = "// %s" },
 	},
+	autopairs = { enable = true },
 	autotag = { enable = false },
 	incremental_selection = {
 		enable = enable,
@@ -715,7 +716,22 @@ vim.cmd("autocmd BufWritePre * if get(g:, 'nullLsFormat', 1) | exe 'lua vim.lsp.
 vim.cmd("nnoremap <F6> :let g:nullLsFormat = !get(g:, 'nullLsFormat', 1)<cr>")
 
 -- nvim-autopairs
-require("nvim-autopairs").setup({})
+require("nvim-autopairs").setup({
+	check_ts = true,
+	ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
+	disable_filetype = { "TelescopePrompt", "spectre_panel" },
+	fast_wrap = {
+		map = "<M-e>",
+		chars = { "{", "[", "(", '"', "'" },
+		pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+		offset = 0, -- Offset from pattern match
+		end_key = "$",
+		keys = "qwertyuiopzxcvbnmasdfghjkl",
+		check_comma = true,
+		highlight = "PmenuSel",
+		highlight_grey = "LineNr",
+	},
+})
 
 -- trouble
 require("trouble").setup({})
