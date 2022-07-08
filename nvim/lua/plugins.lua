@@ -116,6 +116,8 @@ require("packer").startup(function()
 	use("rafamadriz/friendly-snippets")
 
 	-- Utility
+	use("p00f/nvim-ts-rainbow")
+	use("lukas-reineke/indent-blankline.nvim")
 	use("AndrewRadev/splitjoin.vim")
 	use("folke/lsp-colors.nvim")
 	use("numToStr/Navigator.nvim")
@@ -214,6 +216,8 @@ require("gitsigns").setup({
 	update_debounce = 200,
 	status_formatter = nil, -- Use default
 })
+
+require'nvim-treesitter.configs'.setup{}
 
 require("nvim-treesitter.configs").setup({
 	on_config_done = nil,
@@ -343,9 +347,9 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 	rainbow = {
-		enable = false,
-		extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-		max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+		enable = true,
+		extended_mode = true,
+		max_file_lines = nil,
 	},
 })
 
@@ -754,3 +758,9 @@ require("pqf").setup()
 if vim.env.TMUX then
 	require("Navigator").setup()
 end
+
+-- indent-blankline
+require("indent_blankline").setup({
+	show_current_context = true,
+	show_current_context_start = true,
+})
