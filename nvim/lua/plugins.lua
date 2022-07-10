@@ -642,8 +642,10 @@ local function default_on_attach(client, bufnr)
 	}, bufnr)
 end
 
+lspconfig.ansiblels.setup({ on_attach = default_on_attach })
 lspconfig.clangd.setup({ on_attach = default_on_attach })
 lspconfig.dockerls.setup({ on_attach = default_on_attach })
+lspconfig.jsonls.setup({ on_attach = default_on_attach })
 lspconfig.marksman.setup({ on_attach = default_on_attach })
 lspconfig.pyright.setup({ on_attach = default_on_attach })
 lspconfig.solargraph.setup({ on_attach = default_on_attach })
