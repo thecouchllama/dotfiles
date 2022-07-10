@@ -5,18 +5,18 @@
 -- =============================================================================
 
 local colors = {
-  color0   = "#FFFFFF",
-  color1   = "#7F7F7F",
-  color2   = "#275D84",
-  color3   = "#1f4461",
-  color4   = "#193549",
-  color5   = "#FF9D00",
-  color8   = "#77929e",
-  color9   = "#00384d",
-  color10  = "#517f8d",
-  color13  = "#EE80E1",
-  color14  = "#902020",
-  color17  = "#70b950",
+  color0  = "#FFFFFF",
+  color1  = "#7F7F7F",
+  color2  = "#275D84",
+  color3  = "#1f4461",
+  color4  = "#193549",
+  color5  = "#FF9D00",
+  color8  = "#77929e",
+  color9  = "#00384d",
+  color10 = "#517f8d",
+  color13 = "#EE80E1",
+  color14 = "#902020",
+  color17 = "#70b950",
 }
 
 local cobalt2 = {
