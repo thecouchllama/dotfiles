@@ -593,13 +593,6 @@ cmp.setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
 
-require("go").setup({
-	fillstruct = "gopls",
-	lsp_gofumpt = true,
-	dap_debug = true,
-	dap_debug_gui = true,
-})
-
 -- Setup LSP
 require("nvim-lsp-installer").setup({
 	automatic_installation = true,
@@ -610,6 +603,17 @@ require("nvim-lsp-installer").setup({
 			server_uninstalled = "✗",
 		},
 	},
+})
+
+local path = require("nvim-lsp-installer.core.path")
+local install_root_dir = path.concat({ vim.fn.stdpath("data"), "lsp_servers" })
+
+require("go").setup({
+	gopls_cmd = { install_root_dir .. "/go/gopls" },
+	fillstruct = "gopls",
+	lsp_gofumpt = true,
+	dap_debug = true,
+	dap_debug_gui = true,
 })
 
 local navic = require("nvim-navic")
