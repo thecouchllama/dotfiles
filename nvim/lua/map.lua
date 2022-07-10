@@ -7,9 +7,6 @@ local function map(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- telescope
-map("n", "<f1>", "<cmd>Telescope help_tags<cr>")
-
 -- hop
 map("n", "<leader>s", "<cmd>HopWord<cr>")
 map("n", "<leader>l", "<cmd>HopLine<cr>")
@@ -31,6 +28,13 @@ map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
 map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
+-- git linker
+map("v", "<leader>gll", '<cmd>lua require"gitlinker".get_buf_range_url("v")<cr>')
+map(
+	"v",
+	"<leader>glb",
+	'<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
+)
 -- other
 map("n", "<leader>'", "<C-w>s")
 map("n", "<leader>;", "<C-w>v")
@@ -50,12 +54,6 @@ map("v", "<leader>y", ":OSCYank<cr>")
 map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
 
 -- git linker
-map("n", "<leader>gY", '<cmd>lua require"gitlinker".get_repo_url()<cr>')
-map(
-	"n",
-	"<leader>gB",
-	'<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>'
-)
 
 -- neotest
 map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
@@ -159,6 +157,19 @@ wk.register({
 				n = { "<cmd>GHNextThread<cr>", "Next" },
 				t = { "<cmd>GHToggleThread<cr>", "Toggle" },
 			},
+		},
+		l = {
+			name = "+Linker",
+			u = { '<cmd>lua require"gitlinker".get_repo_url()<cr>', "RepoUrl" },
+			b = {
+				'<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+				"OpenLine",
+			},
+			r = {
+				'<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+				"OpenRepo",
+			},
+			l = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "LineUrl" },
 		},
 	},
 	x = {

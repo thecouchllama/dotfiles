@@ -161,7 +161,7 @@ require("colorbuddy").colorscheme("cobalt2")
 
 -- gitlinker
 require("gitlinker").setup({
-	mappings = "<space>gy",
+	mappings = nil,
 })
 
 require("gitsigns").setup({
