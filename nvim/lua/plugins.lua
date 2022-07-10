@@ -639,7 +639,7 @@ for _, name in pairs(servers) do
   end
 end
 
-local lsp_installer = require("nvim-lsp-installer")
+local navic = require("nvim-navic")
 
 local function on_attach(client, bufnr)
   -- Set up buffer-local keymaps (vim.api.nvim_buf_set_keymap()), etc.
@@ -648,7 +648,14 @@ end
 lsp_installer.on_server_ready(function(server)
   -- Specify the default options which we'll use to setup all servers
   local default_opts = {
+    gopls = {
+      settings = {
+        gopls = { gofumpt = true },
+      },
+    },
+
     on_attach = function(client, bufnr)
+      navic.attach(client, bufnr)
       local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
       end
@@ -676,17 +683,7 @@ lsp_installer.on_server_ready(function(server)
       }, bufnr)
     end,
   }
-  local server_opts = {
-    ["gopls"] = function()
-      default_opts = {
-        gopls = {
-          settings = {
-            gopls = { gofumpt = true },
-          },
-        },
-      }
-    end,
-  }
+  local server_opts = {}
 
   -- Use the server's custom settings, if they exist, otherwise default to the default options
   local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
