@@ -186,9 +186,12 @@ wk.register({
     c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
     d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
     f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
-    g = { "<cmd>Telescope git_files<cr>", "Gitfiles" },
+    g = { "<cmd>Telescope git_files<cr>", "GitFiles" },
     h = { "<cmd>Telescope help_tags<cr>", "HelpTags" },
+    i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "FindInBuffer" },
+    j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
+    m = { "<cmd>Telescope marks<cr>", "Marks" },
     r = {
       '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
       "RepoList",
