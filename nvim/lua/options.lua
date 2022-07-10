@@ -1,4 +1,3 @@
-local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local opt = vim.opt -- to set options
 local g = vim.g -- a table to access global variables
 
