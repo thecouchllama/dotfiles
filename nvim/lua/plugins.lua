@@ -54,10 +54,9 @@ require("packer").startup(function()
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- Language Server
-  use("neovim/nvim-pspconfig")
+  use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
   use("ray-x/lsp_signature.nvim")
-  use("kosayoda/nvim-lightbulb")
   use("stevearc/dressing.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
 
