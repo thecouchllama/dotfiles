@@ -6,8 +6,7 @@ vim.g.bufferline = {
 	maximum_padding = 1,
 }
 
-require("nvim-gps").setup()
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 require("lualine").setup({
 	options = {
@@ -34,7 +33,7 @@ require("lualine").setup({
 				color = {},
 			},
 			"filename",
-			{ gps.get_location, cond = gps.is_available },
+			{ navic.get_location, cond = navic.is_available },
 		},
 		lualine_x = {
 			{
