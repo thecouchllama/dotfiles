@@ -44,7 +44,7 @@ require("packer").startup(function()
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  use("SmiteshP/nvim-gps")
+  use("SmiteshP/nvim-navic")
 
   -- movement
   use({
