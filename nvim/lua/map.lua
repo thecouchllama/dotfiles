@@ -8,18 +8,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- telescope
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>fc", "<cmd>Telescope quickfix<cr>")
-map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-map("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-map("n", "<leader>fl", "<cmd>Telescope loclist<cr>")
-map(
-	"n",
-	"<leader>fr",
-	'<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>'
-)
 map("n", "<f1>", "<cmd>Telescope help_tags<cr>")
 
 -- hop
@@ -61,17 +49,6 @@ map("v", "<C-s>", "<Esc><cmd>w<cr>")
 map("v", "<leader>y", ":OSCYank<cr>")
 map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
 
--- fugitive
-map("n", "<leader>gb", "<cmd>Git blame<cr>")
-map("n", "<leader><leader>gb", "<cmd>Git blame<cr>")
-map("n", "<leader><leader>gc", "<cmd>Git commit<cr>")
-map("n", "<leader><leader>gd", "<cmd>Git diff<cr>")
-map("n", "<leader><leader>ge", "<cmd>Gedit<cr>")
-map("n", "<leader><leader>gl", "<cmd>Gclog<cr>")
-map("n", "<leader><leader>gp", "<cmd>Gpush origin HEAD<cr>")
-map("n", "<leader><leader>gr", "<cmd>Gread<cr>")
-map("n", "<leader><leader>gs", "<cmd>Git<cr><c-w>")
-
 -- git linker
 map("n", "<leader>gY", '<cmd>lua require"gitlinker".get_repo_url()<cr>')
 map(
@@ -81,14 +58,6 @@ map(
 )
 
 -- neotest
-map("n", "<leader>ta", '<cmd>lua require("neotest").run.attach()<CR>')
-map("n", "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
-map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
-map("n", "<leader>tl", '<cmd>lua require("neotest").run.run_last()<CR>')
-map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>')
-map("n", "<leader>to", '<cmd>lua require("neotest").output.open({ enter = true })<CR>')
-map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
-map("n", "<leader>tx", '<cmd>lua require("neotest").run.stop()<CR>')
 map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
 map("n", "]t", '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>')
 
@@ -124,12 +93,6 @@ map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map("n", "gr", "<cmd>Telescope lsp_references<CR>")
 
 -- trouble
-map("n", "<leader>xc", "<cmd>TroubleClose<cr>")
-map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
-map("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
-map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
-map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
-map("n", "<leader>xx", "<cmd>Trouble<cr>")
 map("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
 -- dasht
@@ -145,3 +108,91 @@ map("n", "<C-h>", "<CMD>lua require('Navigator').left()<CR>")
 map("n", "<C-k>", "<CMD>lua require('Navigator').up()<CR>")
 map("n", "<C-l>", "<CMD>lua require('Navigator').right()<CR>")
 map("n", "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
+
+-- Which Key Mappings
+local wk = require("which-key")
+wk.register({
+	g = {
+		name = "+Git",
+		b = { "<cmd>Git Blame<cr>", "Blame" },
+		h = {
+			name = "+Github",
+			c = {
+				name = "+Commits",
+				c = { "<cmd>GHCloseCommit<cr>", "Close" },
+				e = { "<cmd>GHExpandCommit<cr>", "Expand" },
+				o = { "<cmd>GHOpenToCommit<cr>", "Open To" },
+				p = { "<cmd>GHPopOutCommit<cr>", "Pop Out" },
+				z = { "<cmd>GHCollapseCommit<cr>", "Collapse" },
+			},
+			i = {
+				name = "+Issues",
+				p = { "<cmd>GHPreviewIssue<cr>", "Preview" },
+			},
+			l = {
+				name = "+Litee",
+				t = { "<cmd>LTPanel<cr>", "Toggle Panel" },
+			},
+			r = {
+				name = "+Review",
+				b = { "<cmd>GHStartReview<cr>", "Begin" },
+				c = { "<cmd>GHCloseReview<cr>", "Close" },
+				d = { "<cmd>GHDeleteReview<cr>", "Delete" },
+				e = { "<cmd>GHExpandReview<cr>", "Expand" },
+				s = { "<cmd>GHSubmitReview<cr>", "Submit" },
+				z = { "<cmd>GHCollapseReview<cr>", "Collapse" },
+			},
+			p = {
+				name = "+Pull Request",
+				c = { "<cmd>GHClosePR<cr>", "Close" },
+				d = { "<cmd>GHPRDetails<cr>", "Details" },
+				e = { "<cmd>GHExpandPR<cr>", "Expand" },
+				o = { "<cmd>GHOpenPR<cr>", "Open" },
+				p = { "<cmd>GHPopOutPR<cr>", "PopOut" },
+				r = { "<cmd>GHRefreshPR<cr>", "Refresh" },
+				t = { "<cmd>GHOpenToPR<cr>", "Open To" },
+				z = { "<cmd>GHCollapsePR<cr>", "Collapse" },
+			},
+			t = {
+				name = "+Threads",
+				c = { "<cmd>GHCreateThread<cr>", "Create" },
+				n = { "<cmd>GHNextThread<cr>", "Next" },
+				t = { "<cmd>GHToggleThread<cr>", "Toggle" },
+			},
+		},
+	},
+	x = {
+		name = "+Trouble",
+		c = { "<cmd>TroubleClose<cr>", "Close" },
+		d = { "<cmd>Trouble document_diagnostics<cr>", "DocDiag" },
+		l = { "<cmd>Trouble loclist<cr>", "LocList" },
+		q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+		w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
+		x = { "<cmd>Trouble<cr>", "Trouble" },
+	},
+	f = {
+		name = "+Telescope",
+		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+		c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
+		d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
+		f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
+		g = { "<cmd>Telescope git_files<cr>", "Gitfiles" },
+		h = { "<cmd>Telescope help_tags<cr>", "HelpTags" },
+		l = { "<cmd>Telescope loclist<cr>", "LocList" },
+		r = {
+			'<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
+			"RepoList",
+		},
+	},
+	t = {
+		name = "+NeoTest",
+		a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
+		f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', "CurrentFile" },
+		d = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', "DAP" },
+		l = { '<cmd>lua require("neotest").run.run_last()<CR>', "Last" },
+		n = { '<cmd>lua require("neotest").run.run()<CR>', "Run" },
+		o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', "Output" },
+		s = { '<cmd>lua require("neotest").summary.toggle()<CR>', "Summary" },
+		x = { '<cmd>lua require("neotest").run.stop()<CR>', "Stop" },
+	},
+}, { prefix = "<leader>" })

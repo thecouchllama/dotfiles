@@ -136,6 +136,17 @@ require("packer").startup(function()
 			require("git-conflict").setup()
 		end,
 	})
+
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 end)
 
 require("fidget").setup({
@@ -217,7 +228,7 @@ require("gitsigns").setup({
 	status_formatter = nil, -- Use default
 })
 
-require'nvim-treesitter.configs'.setup{}
+require("nvim-treesitter.configs").setup({})
 
 require("nvim-treesitter.configs").setup({
 	on_config_done = nil,
