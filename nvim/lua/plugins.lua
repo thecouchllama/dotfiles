@@ -619,7 +619,7 @@ require("go").setup({
 local navic = require("nvim-navic")
 local lspconfig = require("lspconfig")
 
-local function on_attach(client, bufnr)
+local function default_on_attach(client, bufnr)
 	navic.attach(client, bufnr)
 
 	local function buf_set_option(...)
@@ -642,21 +642,31 @@ local function on_attach(client, bufnr)
 	}, bufnr)
 end
 
+lspconfig.clangd.setup({ on_attach = default_on_attach })
+lspconfig.dockerls.setup({ on_attach = default_on_attach })
+lspconfig.marksman.setup({ on_attach = default_on_attach })
+lspconfig.pyright.setup({ on_attach = default_on_attach })
+lspconfig.solargraph.setup({ on_attach = default_on_attach })
+lspconfig.taplo.setup({ on_attach = default_on_attach })
+lspconfig.terraformls.setup({ on_attach = default_on_attach })
+lspconfig.yamlls.setup({ on_attach = default_on_attach })
+
+lspconfig.gopls.setup({
+	on_attach = default_on_attach,
+	settings = {
+		gopls = {
+			gofumpt = true,
+		},
+	},
+})
+
 lspconfig.sumneko_lua.setup({
-	on_attach = on_attach,
+	on_attach = default_on_attach,
 	settings = {
 		Lua = {
 			diagnostics = {
 				globals = { "vim", "use" },
 			},
-		},
-	},
-})
-lspconfig.gopls.setup({
-	on_attach = on_attach,
-	settings = {
-		gopls = {
-			gofumpt = true,
 		},
 	},
 })
