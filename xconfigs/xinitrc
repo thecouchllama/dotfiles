@@ -45,6 +45,7 @@ xcape -e 'Control_R=Escape;Super_R=Tab'
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" .25
 
 # Start gnome-keyring
 eval $(ssh-agent)
