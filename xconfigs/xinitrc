@@ -39,7 +39,7 @@ xautolock -time 7 -locker "i3lock -i ~/pictures/wallpaper/framework/fw_cobalt2.p
 setxkbmap -option terminate:ctrl_alt_bksp
 # Setup keyboard
 xmodmap ~/.Xmodmap
-xcape -e 'Control_R=Escape;Super_R=Tab'
+xcape -e 'Control_R=Escape'
 
 # Setup touchpad
 xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
