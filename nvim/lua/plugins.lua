@@ -27,6 +27,11 @@ require("packer").startup(function()
     requires = "nvim-lua/plenary.nvim",
   })
 
+  use {
+    'ldelossa/gh.nvim',
+    requires = { { 'ldelossa/litee.nvim' } }
+  }
+
   use("tpope/vim-fugitive")
 
   -- markdown
@@ -753,3 +758,7 @@ require("indent_blankline").setup({
   show_current_context = true,
   show_current_context_start = true,
 })
+
+-- gh.nvim
+require('litee.lib').setup()
+require('litee.gh').setup()
