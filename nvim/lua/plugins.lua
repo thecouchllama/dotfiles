@@ -760,5 +760,16 @@ require("indent_blankline").setup({
 })
 
 -- gh.nvim
-require('litee.lib').setup()
-require('litee.gh').setup()
+require('litee.lib').setup({
+  icon_set = "nerd",
+  panel = {
+    orientation = "right",
+  },
+  term = {
+    position = "bottom"
+  }
+})
+require('litee.gh').setup({
+  icon_set = "nerd",
+  map_resize_keys = true
+})
