@@ -13,8 +13,8 @@ map("n", "<leader>l", "<cmd>HopLine<cr>")
 map("n", "<leader>/", "<cmd>HopPattern<cr>")
 
 -- Resize iwndows
-map("n", "<Left>", "<cmd>5winc ><cr>")
-map("n", "<Right>", "<cmd>5winc <<cr>")
+map("n", "<Left>", "<cmd>5winc <<cr>")
+map("n", "<Right>", "<cmd>5winc ><cr>")
 
 -- barbar
 map("n", "<C-n>", "<cmd>BufferNext<cr>")
