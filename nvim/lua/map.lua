@@ -12,11 +12,13 @@ map("n", "<leader>s", "<cmd>HopWord<cr>")
 map("n", "<leader>l", "<cmd>HopLine<cr>")
 map("n", "<leader>/", "<cmd>HopPattern<cr>")
 
+-- Resize iwndows
+map("n", "<Left>", "<cmd>5winc ><cr>")
+map("n", "<Right>", "<cmd>5winc <<cr>")
+
 -- barbar
 map("n", "<C-n>", "<cmd>BufferNext<cr>")
-map("n", "<Right>", "<cmd>BufferNext<cr>")
 map("n", "<C-p>", "<cmd>BufferPrevious<cr>")
-map("n", "<Left>", "<cmd>BufferPrevious<cr>")
 map("n", "<leader>a", "<cmd>BufferPick<cr>")
 map("n", "<leader>1", "<cmd>BufferGoto 1<CR>")
 map("n", "<leader>2", "<cmd>BufferGoto 2<CR>")
@@ -28,22 +30,12 @@ map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
 map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
--- git linker
-map("v", "<leader>gll", '<cmd>lua require"gitlinker".get_buf_range_url("v")<cr>')
-map(
-  "v",
-  "<leader>glb",
-  '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
-)
 -- other
 map("n", "<leader>'", "<C-w>s")
 map("n", "<leader>;", "<C-w>v")
 map("n", "<leader>P", '"+P')
-map("n", "<leader>x", "<cmd>close<cr>")
-map("n", "<leader>d", "<cmd>bdelete!<cr>")
 map("n", "<leader>p", '"+p')
 map("n", "<leader>rv", "<cmd>source $MYVIMRC<cr>")
-map("n", "<leader>wd", "<cmd>pclose<cr>")
 map("n", "ZZ", "<cmd>wqa!<cr>")
 map("n", "<C-s>", "<cmd>w<cr>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
@@ -51,8 +43,6 @@ map("v", "<C-s>", "<Esc><cmd>w<cr>")
 -- yank
 map("v", "<leader>y", ":OSCYank<cr>")
 map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
-
--- git linker
 
 -- neotest
 map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
@@ -63,6 +53,7 @@ map("n", "<leader>m", "<cmd>Glow<cr>")
 map("n", "<C-w>z", "<C-w>|<C-w>_")
 
 -- other
+map("n", "<F2>", "<cmd>set wrap!<cr>")
 map("n", "<F4>", "<cmd>noh<cr>")
 map("i", "<F4>", "<C-o><cmd>noh<cr>")
 map("n", "<F7>", "<cmd>set spell!<cr>")
@@ -109,6 +100,23 @@ map("n", "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
 -- Which Key Mappings
 local wk = require("which-key")
 wk.register({
+  f = {
+    name = "+Telescope",
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
+    d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
+    f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
+    g = { "<cmd>Telescope git_files<cr>", "GitFiles" },
+    h = { "<cmd>Telescope help_tags<cr>", "HelpTags" },
+    i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "FindInBuffer" },
+    j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
+    l = { "<cmd>Telescope loclist<cr>", "LocList" },
+    m = { "<cmd>Telescope marks<cr>", "Marks" },
+    r = {
+      '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
+      "RepoList",
+    },
+  },
   g = {
     name = "+Git",
     b = { "<cmd>Git Blame<cr>", "Blame" },
@@ -171,32 +179,6 @@ wk.register({
       l = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "LineUrl" },
     },
   },
-  x = {
-    name = "+Trouble",
-    c = { "<cmd>TroubleClose<cr>", "Close" },
-    d = { "<cmd>Trouble document_diagnostics<cr>", "DocDiag" },
-    l = { "<cmd>Trouble loclist<cr>", "LocList" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
-    x = { "<cmd>Trouble<cr>", "Trouble" },
-  },
-  f = {
-    name = "+Telescope",
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
-    d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
-    f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
-    g = { "<cmd>Telescope git_files<cr>", "GitFiles" },
-    h = { "<cmd>Telescope help_tags<cr>", "HelpTags" },
-    i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "FindInBuffer" },
-    j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
-    l = { "<cmd>Telescope loclist<cr>", "LocList" },
-    m = { "<cmd>Telescope marks<cr>", "Marks" },
-    r = {
-      '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
-      "RepoList",
-    },
-  },
   t = {
     name = "+NeoTest",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
@@ -207,5 +189,20 @@ wk.register({
     o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', "Output" },
     s = { '<cmd>lua require("neotest").summary.toggle()<CR>', "Summary" },
     x = { '<cmd>lua require("neotest").run.stop()<CR>', "Stop" },
+  },
+  w = {
+    name = "+Window",
+    p = { "<cmd>pclose<cr>", "ClosePreview" },
+    d = { "<cmd>bdelete!<cr>", "DeleteBuffer" },
+    x = { "<cmd>close<cr>", "Close" }
+  },
+  x = {
+    name = "+Trouble",
+    c = { "<cmd>TroubleClose<cr>", "Close" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "DocDiag" },
+    l = { "<cmd>Trouble loclist<cr>", "LocList" },
+    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
+    x = { "<cmd>Trouble<cr>", "Trouble" },
   },
 }, { prefix = "<leader>" })
