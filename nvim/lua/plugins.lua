@@ -130,7 +130,6 @@ require("packer").startup(function()
   use("windwp/nvim-autopairs")
   use("sunaku/vim-dasht")
   use("j-hui/fidget.nvim")
-  use("tpope/vim-surround")
   use("ojroques/vim-oscyank")
   use("https://gitlab.com/yorickpeterse/nvim-pqf.git")
   use({
@@ -138,6 +137,12 @@ require("packer").startup(function()
     config = function()
       require("git-conflict").setup()
     end,
+  })
+  use({
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({})
+    end
   })
 
   use({
