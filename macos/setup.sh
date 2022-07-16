@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 echo "[*] Installing homebrew"
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 if [[ -f /usr/local/bin/brew ]]; then
 	eval "$(/usr/local/bin/brew shellenv)"

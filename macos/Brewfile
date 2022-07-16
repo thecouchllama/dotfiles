@@ -68,6 +68,7 @@ brew "yamllint"
 brew "yarn"
 brew "yq"
 brew "kudobuilder/tap/kuttl-cli"
+cask "1password"
 cask "alfred"
 cask "backblaze"
 cask "bartender"
@@ -80,12 +81,7 @@ cask "kitty"
 cask "meld"
 cask "obsidian"
 cask "omnifocus"
-cask "raindropio"
 cask "secretive"
-cask "textexpander"
-mas "1Password 7", id: 1333542190
-mas "AirMail", id: 918858936
-mas "CARROT Weather", id: 993487541
 mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "Reeder", id: 1529448980
