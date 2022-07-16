@@ -240,7 +240,7 @@ require("nvim-treesitter.configs").setup({
   on_config_done = nil,
   ensure_installed = "all",
   sync_install = false,
-  ignore_install = {},
+  ignore_install = { "phpdoc" },
   context_commentstring = {
     enable = true,
   },
