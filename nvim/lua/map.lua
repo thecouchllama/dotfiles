@@ -91,12 +91,6 @@ map("n", "<leader>k", ":call Dasht(dasht#cursor_search_terms())<CR>")
 map("v", "<leader><leader>k", "y:<C-U>call Dasht(getreg(0), '!' )<CR>")
 map("v", "<leader>k", "y:<C-U>call Dasht(getreg(0))<CR>")
 
--- navigator (tmux)
-map("n", "<C-h>", "<CMD>lua require('Navigator').left()<CR>")
-map("n", "<C-k>", "<CMD>lua require('Navigator').up()<CR>")
-map("n", "<C-l>", "<CMD>lua require('Navigator').right()<CR>")
-map("n", "<C-j>", "<CMD>lua require('Navigator').down()<CR>")
-
 -- Which Key Mappings
 local wk = require("which-key")
 wk.register({
