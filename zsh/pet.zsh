@@ -12,7 +12,6 @@ if which pet >/dev/null 2>&1; then
     zle redisplay
   }
   zle -N pet-select
-  stty -ixon
   bindkey '^s' pet-select
 
   alias petc="pet search | pbcopy"
