@@ -33,6 +33,7 @@ map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 -- other
 map("n", "<leader>'", "<C-w>s")
 map("n", "<leader>;", "<C-w>v")
+map("n", "<leader>d", "<cmd>bdelete!<cr>")
 map("n", "<leader>P", '"+P')
 map("n", "<leader>p", '"+p')
 map("n", "<leader>rv", "<cmd>source $MYVIMRC<cr>")
@@ -187,7 +188,6 @@ wk.register({
   w = {
     name = "+Window",
     p = { "<cmd>pclose<cr>", "ClosePreview" },
-    d = { "<cmd>bdelete!<cr>", "DeleteBuffer" },
     x = { "<cmd>close<cr>", "Close" }
   },
   x = {
