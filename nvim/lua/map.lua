@@ -31,15 +31,31 @@ map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
 -- other
+map("i", "<F4>", "<C-o><cmd>noh<cr>")
+map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
+map("i", "<F8>", "<C-o><cmd>set list!<cr>")
+map("i", "<F9>", '<C-o><cmd>lua require"toggle_cmp".toggle_completion()<cr>')
+map("n", "<C-s>", "<cmd>w<cr>")
+map("n", "<F2>", "<cmd>set wrap!<cr>")
+map("n", "<F4>", "<cmd>noh<cr>")
+map("n", "<F7>", "<cmd>set spell!<cr>")
+map("n", "<F8>", "<cmd>set list!<cr>")
+map("n", "<F9>", '<cmd>lua require"toggle_cmp".toggle_completion()<cr>')
 map("n", "<leader>'", "<C-w>s")
 map("n", "<leader>;", "<C-w>v")
-map("n", "<leader>d", "<cmd>bdelete!<cr>")
 map("n", "<leader>P", '"+P')
+map("n", "<leader>d", "<cmd>bdelete!<cr>")
 map("n", "<leader>p", '"+p')
 map("n", "<leader>rv", "<cmd>source $MYVIMRC<cr>")
 map("n", "ZZ", "<cmd>wqa!<cr>")
-map("n", "<C-s>", "<cmd>w<cr>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
+
+
+-- window movement
+map("n", "<C-h>", "<cmd>wincmd h<cr>")
+map("n", "<C-j>", "<cmd>wincmd j<cr>")
+map("n", "<C-k>", "<cmd>wincmd k<cr>")
+map("n", "<C-l>", "<cmd>wincmd l<cr>")
 
 -- yank
 map("v", "<leader>y", ":OSCYank<cr>")
@@ -54,18 +70,9 @@ map("n", "<leader>m", "<cmd>Glow<cr>")
 map("n", "<C-w>z", "<C-w>|<C-w>_")
 
 -- other
-map("n", "<F2>", "<cmd>set wrap!<cr>")
-map("n", "<F4>", "<cmd>noh<cr>")
-map("i", "<F4>", "<C-o><cmd>noh<cr>")
-map("n", "<F7>", "<cmd>set spell!<cr>")
-map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
-map("n", "<F8>", "<cmd>set list!<cr>")
-map("i", "<F8>", "<C-o><cmd>set list!<cr>")
-map("n", "<F9>", '<cmd>lua require"toggle_cmp".toggle_completion()<cr>')
-map("i", "<F9>", '<C-o><cmd>lua require"toggle_cmp".toggle_completion()<cr>')
 
 -- LSP
-map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+map("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>")
 map("n", "<leader>c", "<cmd>Telescope lsp_code_actions<CR>")
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
