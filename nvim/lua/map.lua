@@ -121,7 +121,7 @@ wk.register({
   },
   g = {
     name = "+Git",
-    b = { "<cmd>Git Blame<cr>", "Blame" },
+    b = { "<cmd>Git blame<cr>", "Blame" },
     h = {
       name = "+Github",
       c = {
