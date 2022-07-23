@@ -49,6 +49,7 @@ brew "mas"
 brew "neovim"
 brew "nmap"
 brew "node@14"
+brew "podman"
 brew "pre-commit"
 brew "prettier"
 brew "prettyping"
@@ -79,7 +80,6 @@ cask "backblaze"
 cask "bartender"
 cask "discord"
 cask "font-dejavu-sans-mono-nerd-font"
-cask "hammerspoon"
 cask "istat-menus"
 cask "karabiner-elements"
 cask "kitty"
@@ -89,6 +89,7 @@ cask "omnifocus"
 cask "secretive"
 mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
+mas "Moom", id: 419330170
 mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "TextSniper", id: 1528890965
