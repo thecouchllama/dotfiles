@@ -7,6 +7,7 @@ function! GetBufferList() abort
 endfunction
 
 function! ToggleList(bufname, pfx) abort
+
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
     if bufwinnr(bufnum) != -1
@@ -46,9 +47,11 @@ let s:diagnostictoggle = 1
 function! DiagnosticToggle() abort
   if s:diagnostictoggle
     lua vim.diagnostic.disable()
+    lua vim.diagnostic.config({ virtual_lines = false })
     let s:diagnostictoggle = 0
   else
     lua vim.diagnostic.enable()
+    lua vim.diagnostic.config({ virtual_lines = true })
     let s:diagnostictoggle =1
   endif
 endfunc

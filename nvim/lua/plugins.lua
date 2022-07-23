@@ -69,6 +69,13 @@ require("packer").startup(function()
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   })
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
   -- languages
   use("buoto/gotests-vim")
   use("ray-x/go.nvim")
@@ -597,6 +604,10 @@ require("go").setup({
   lsp_gofumpt = true,
   dap_debug = true,
   dap_debug_gui = true,
+})
+
+vim.diagnostic.config({
+  virtual_text = false,
 })
 
 local navic = require("nvim-navic")
