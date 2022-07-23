@@ -27,7 +27,6 @@ alias catl='bat --pager=never'
 alias catp='bat'
 
 # ssh aliases
-alias copy_terminfo="kitty +kitten ssh "$1" echo COPY terminfo"
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 alias sshnh='ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 

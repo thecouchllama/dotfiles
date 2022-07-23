@@ -16,4 +16,7 @@ function diff() {
   batdiff --delta --terminal-width=$(($COLUMNS-1)) $1 $2
 }
 
-alias copy_terminfo="kitty +kitten ssh "$1" echo COPY terminfo"
+
+function copy_terminfo() {
+  kitty +kitten ssh "$1" echo COPY terminfo
+}
