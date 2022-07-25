@@ -60,7 +60,8 @@ require("packer").startup(function()
 
   -- Language Server
   use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
   use("ray-x/lsp_signature.nvim")
   use("stevearc/dressing.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
@@ -584,22 +585,21 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("repo")
 
 -- Setup LSP
-require("nvim-lsp-installer").setup({
-  automatic_installation = true,
+require("mason").setup({
   ui = {
     icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗",
-    },
-  },
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+    }
+  }
 })
-
-local path = require("nvim-lsp-installer.core.path")
-local install_root_dir = path.concat({ vim.fn.stdpath("data"), "lsp_servers" })
+require("mason-lspconfig").setup {
+  automatic_installation = true,
+}
 
 require("go").setup({
-  gopls_cmd = { install_root_dir .. "/gopls/gopls" },
+  gopls_cmd = { "~/.local/share/nvim/mason/bin/gopls" },
   fillstruct = "gopls",
   lsp_gofumpt = true,
   dap_debug = true,
