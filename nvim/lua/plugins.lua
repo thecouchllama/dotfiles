@@ -599,7 +599,6 @@ require("mason-lspconfig").setup {
 }
 
 require("go").setup({
-  gopls_cmd = { "~/.local/share/nvim/mason/bin/gopls" },
   fillstruct = "gopls",
   lsp_gofumpt = true,
   dap_debug = true,
@@ -691,6 +690,7 @@ require("null-ls").setup({
       args = { "-c", "~/.markdownlint.yaml", "--stdin" },
     }),
     null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.diagnostics.vale,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.fixjson,
     null_ls.builtins.formatting.prettier.with({
